@@ -1,10 +1,10 @@
 import type { ContainerProps } from "../types/types";
 
-export const Container = ({ padding, bgColor }: ContainerProps) => {
+export const Container = ({ padding, bgColor, children }: ContainerProps) => {
   const containerStyle = {
-    padding: `${padding}px`,
+    padding: padding,
     backgroundColor: bgColor,
   };
 
-  return <div style={containerStyle}>This is a container</div>;
+  return <section style={containerStyle}>{children}</section>;
 };

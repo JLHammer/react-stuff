@@ -1,3 +1,10 @@
+import type { CSSProperties } from "react";
+
 export const Footer = () => {
-  return <footer>This is a footer</footer>;
+  const footerStyle: CSSProperties = {
+    backgroundColor: "#036395",
+    color: "white",
+  };
+
+  return <footer style={footerStyle}>This is a footer</footer>;
 };

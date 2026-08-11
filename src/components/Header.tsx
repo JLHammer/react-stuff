@@ -1,10 +1,11 @@
-import { Navbar } from "./Navbar";
+import type { CSSProperties } from "react";
+import type { HeaderProps } from "../types/types";
 
-export const Header = () => {
-  return (
-    <header>
-      This is the header
-      <Navbar />
-    </header>
-  );
+export const Header = ({ children }: HeaderProps) => {
+  const headerStyle: CSSProperties = {
+    display: "flex",
+    gap: "1rem",
+  };
+
+  return <header style={headerStyle}>{children}</header>;
 };

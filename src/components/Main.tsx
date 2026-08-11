@@ -1,11 +1,12 @@
-import { Container } from "./Container";
-import { Button } from "./Button";
+import type { CSSProperties } from "react";
+import type { MainProps } from "../types/types";
 
-export const Main = () => {
-  return (
-    <main>
-      <Container padding="20" bgColor="lightgray" />
-      <Button textValue="Click Me" disabled={false} count={0} />
-    </main>
-  );
+export const Main = ({ children }: MainProps) => {
+  const mainStyle: CSSProperties = {
+    display: "flex",
+    flexDirection: "column",
+    gap: "20px",
+  };
+
+  return <main style={mainStyle}>{children}</main>;
 };

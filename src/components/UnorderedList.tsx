@@ -1,9 +1,22 @@
-import { ListItem } from "./ListItem";
+import type { UnorderedListProps } from "../types/types";
 
-export const UnorderedList = () => {
-  return (
-    <ul>
-      <ListItem />
-    </ul>
-  );
+export const UnorderedList = ({
+  margin,
+  padding,
+  display,
+  gap,
+  children,
+}: UnorderedListProps) => {
+  const unorderedListStyle = {
+    listStyleType: "none",
+    display: display,
+    gap: gap,
+    margin: margin,
+    padding: padding,
+    height: "100%",
+    justifyContent: "space-between",
+    alignItems: "center",
+  };
+
+  return <ul style={unorderedListStyle}>{children}</ul>;
 };
