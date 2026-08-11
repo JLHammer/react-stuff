@@ -1,10 +1,10 @@
-import type { CSSProperties } from "react";
+import type { FooterProps } from "../types/types";
 
-export const Footer = () => {
-  const footerStyle: CSSProperties = {
+export const Footer = ({ children }: FooterProps) => {
+  const footerStyle = {
     backgroundColor: "#036395",
     color: "white",
   };
 
-  return <footer style={footerStyle}>This is a footer</footer>;
+  return <footer style={footerStyle}>{children}</footer>;
 };

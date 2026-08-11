@@ -41,7 +41,12 @@ function App() {
       <Main>
         <h1>Velkommen til Verdensmålene</h1>
       </Main>
-      <Footer />
+      <Footer>
+        <Logo src="./src/assets/images/undp-logo.svg" alt="Logo" />
+        <Logo src="./src/assets/images/ms-logo.svg" alt="Logo" />
+        <Logo src="./src/assets/images/globale-gymnasier-logo.svg" alt="Logo" />
+        <Logo src="./src/assets/images/danida-logo.svg" alt="Logo" />
+      </Footer>
     </>
   );
 }

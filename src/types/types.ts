@@ -1,8 +1,4 @@
 // Props for components that accept child nodes
-export type ChildProps = {
-  children: React.ReactNode;
-};
-
 export type HeaderProps = {
   children: React.ReactNode;
 };
@@ -18,6 +14,10 @@ export type NavbarProps = {
 };
 
 export type MainProps = {
+  children: React.ReactNode;
+};
+
+export type FooterProps = {
   children: React.ReactNode;
 };
 
