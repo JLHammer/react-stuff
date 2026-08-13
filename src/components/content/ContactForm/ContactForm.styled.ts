@@ -1,17 +1,18 @@
 import styled from "styled-components";
 
 export const ContactFormStyled = styled.form`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: max-content minmax(0, 24rem);
   gap: ${({ theme }) => theme.spacing.s};
-  max-width: 32rem;
+  align-items: start;
 `;
 
 export const ContactFormLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  font-size: ${({ theme }) => theme.fontSizes.s};
+  padding-top: 0.5rem;
+`;
+
+export const RequiredMark = styled.span`
+  color: #e5243b;
 `;
 
 export const ContactFormInput = styled.input`
@@ -29,4 +30,15 @@ export const ContactFormTextarea = styled.textarea`
   font-family: inherit;
   font-size: ${({ theme }) => theme.fontSizes.m};
   resize: vertical;
+`;
+
+export const ContactFormButton = styled.button`
+  grid-column: 2;
+  justify-self: end;
+  padding: 0.5rem ${({ theme }) => theme.spacing.s};
+  border: 1px solid ${({ theme }) => theme.colors.secondary};
+  border-radius: ${({ theme }) => theme.radii.s};
+  font-family: inherit;
+  font-size: ${({ theme }) => theme.fontSizes.s};
+  cursor: pointer;
 `;

@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import type { ContentWrapperProps } from "../../../types/types";
 import {
   ContentWrapperStyled,
+  ContentWrapperTitleBar,
   ContentWrapperTitle,
+  ContentWrapperContent,
 } from "./ContentWrapper.styled";
 
 export const ContentWrapper = ({
@@ -14,7 +16,7 @@ export const ContentWrapper = ({
   // The description is not part of the layout - it tells the browser tab and
   // search engines what the page is about.
   useEffect(() => {
-    document.title = `${title} | Verdensmålene`;
+    document.title = title;
     document
       .querySelector("meta[name='description']")
       ?.setAttribute("content", description);
@@ -22,8 +24,12 @@ export const ContentWrapper = ({
 
   return (
     <ContentWrapperStyled>
-      {showTitle && <ContentWrapperTitle>{title}</ContentWrapperTitle>}
-      {children}
+      {showTitle && (
+        <ContentWrapperTitleBar>
+          <ContentWrapperTitle>{title}</ContentWrapperTitle>
+        </ContentWrapperTitleBar>
+      )}
+      <ContentWrapperContent>{children}</ContentWrapperContent>
     </ContentWrapperStyled>
   );
 };
