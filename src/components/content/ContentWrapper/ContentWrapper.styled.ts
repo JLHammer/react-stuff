@@ -4,14 +4,15 @@ export const ContentWrapperStyled = styled.div`
   width: 100%;
   max-width: ${({ theme }) => theme.maxWidths.content};
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.s};
 `;
 
 export const ContentWrapperTitle = styled.h1`
-  font-size: ${({ theme }) => theme.fontSizes.xl};
-  margin-bottom: ${({ theme }) => theme.spacing.s};
-`;
-
-export const ContentWrapperDescription = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.l};
-  margin-bottom: ${({ theme }) => theme.spacing.m};
+  border: 1px solid ${({ theme }) => theme.colors.secondary};
+  padding: ${({ theme }) => theme.spacing.s};
+  font-size: ${({ theme }) => theme.fontSizes.m};
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 `;
