@@ -6,10 +6,13 @@ export type HeaderProps = {
 export type LogoProps = {
   src: string;
   alt: string;
+  href: string;
+  newTab?: boolean;
 };
 
 export type NavbarProps = {
-  display?: string;
+  $color?: string;
+  $display?: string;
   children: React.ReactNode;
 };
 
@@ -22,22 +25,17 @@ export type FooterProps = {
 };
 
 export type ContainerProps = {
-  padding?: string;
-  bgColor?: string;
+  $padding?: string;
   children?: React.ReactNode;
 };
 
-export type WrapperProps = {
-  padding?: string;
-  bgColor?: string;
-  children: React.ReactNode;
+export type ContentWrapperProps = {
+  children?: React.ReactNode;
 };
 
 export type UnorderedListProps = {
-  margin?: string;
-  padding?: string;
-  display?: string;
-  gap?: string;
+  $display?: string;
+  $gap?: string;
   children: React.ReactNode;
 };
 
@@ -60,7 +58,7 @@ export type ButtonProps = {
 export type CardProps = {
   src: string;
   alt: string;
-  width: string;
-  height: string;
+  $width: string;
+  $height: string;
   children?: React.ReactNode;
 };

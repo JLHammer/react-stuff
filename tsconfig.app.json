@@ -20,7 +20,17 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* The vscode-styled-components extension validates styled templates with a
+       bundled CSS database that predates newer properties, so it reports them
+       as unknown. Editor-only noise — Vite compiles them fine. */
+    "plugins": [
+      {
+        "name": "@styled/typescript-styled-plugin",
+        "lint": { "unknownProperties": "ignore" }
+      }
+    ]
   },
   "include": ["src"]
 }
