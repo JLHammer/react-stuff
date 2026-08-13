@@ -7,7 +7,7 @@ import { ListItem } from "./components/content/ListItem/ListItem";
 import { AnchorLink } from "./components/content/AnchorLink/AnchorLink";
 import { LoginButton } from "./components/content/LoginButton/LoginButton";
 import { Logo } from "./components/content/Logo/Logo";
-import { ContentWrapper } from "./components/content/ContentWrapper/ContentWrapper";
+import { HomePage } from "./pages/HomePage";
 
 function App() {
   return (
@@ -36,9 +36,7 @@ function App() {
         </Navbar>
       </Header>
       <Main>
-        <ContentWrapper>
-          <h1>Velkommen til Verdensmålene</h1>
-        </ContentWrapper>
+        <HomePage />
       </Main>
       <Footer>
         <Logo
