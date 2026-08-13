@@ -52,6 +52,11 @@ export type AnchorLinkProps = {
   newTab?: boolean;
 };
 
+export type NavigationLinkProps = {
+  to: string;
+  children?: React.ReactNode;
+};
+
 export type ButtonProps = {
   textValue: string;
   disabled?: boolean;
