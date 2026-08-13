@@ -1,8 +1,7 @@
 import { Header } from "./components/layout/Header/Header";
 import { Main } from "./components/layout/Main/Main";
 import { Footer } from "./components/layout/Footer/Footer";
-import { Navbar } from "./components/layout/Navbar/Navbar";
-import { TopBar } from "./components/layout/TopBar/TopBar";
+import { Navbar } from "./components/content/Navbar/Navbar";
 import { UnorderedList } from "./components/content/UnorderedList/UnorderedList";
 import { ListItem } from "./components/content/ListItem/ListItem";
 import { AnchorLink } from "./components/content/AnchorLink/AnchorLink";
@@ -12,12 +11,11 @@ import { ContentWrapper } from "./components/content/ContentWrapper/ContentWrapp
 
 function App() {
   return (
-    <ContentWrapper>
-      <TopBar />
+    <>
       <Header>
         <Logo src="./src/assets/Logo.svg" alt="Verdensmålene" href="/" />
-        <Navbar $display="flex">
-          <UnorderedList $display="flex" $gap="5rem">
+        <Navbar>
+          <UnorderedList>
             <ListItem>
               <AnchorLink href="/">Verdensmålene</AnchorLink>
             </ListItem>
@@ -38,7 +36,9 @@ function App() {
         </Navbar>
       </Header>
       <Main>
-        <h1>Velkommen til Verdensmålene</h1>
+        <ContentWrapper>
+          <h1>Velkommen til Verdensmålene</h1>
+        </ContentWrapper>
       </Main>
       <Footer>
         <Logo
@@ -66,7 +66,7 @@ function App() {
           newTab
         />
       </Footer>
-    </ContentWrapper>
+    </>
   );
 }
 

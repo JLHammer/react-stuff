@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
 export const TopBarStyled = styled.div`
-  height: 3rem;
+  height: ${({ theme }) => theme.sizes.topBarHeight};
   background-color: ${({ theme }) => theme.colors.primary};
 `;
