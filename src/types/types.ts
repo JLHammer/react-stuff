@@ -1,4 +1,3 @@
-// Props for components that accept child nodes
 export type HeaderProps = {
   children: React.ReactNode;
 };
@@ -61,6 +60,12 @@ export type ButtonProps = {
   textValue: string;
   disabled?: boolean;
   count?: number;
+};
+
+export type ContactFormValues = {
+  name: string;
+  email: string;
+  message: string;
 };
 
 export type CardProps = {
