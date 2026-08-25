@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
+import { preflight } from "./Preflight.styled";
 
 export const GlobalStyle = createGlobalStyle`
+  ${preflight}
+
   body {
     font-family: ${({ theme }) => theme.fonts.primary};
     font-size: ${({ theme }) => theme.fontSizes.m};
