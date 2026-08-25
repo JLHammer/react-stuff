@@ -8,9 +8,14 @@ import {
   GoalDetailMedia,
   GoalDetailFigure,
   GoalDetailText,
+  GoalDetailVideo,
+  GoalDetailVideoCaption,
 } from "./GoalDetail.styled";
 
 const toParagraphs = (description: string) => description.split("\n\n");
+
+const toMutedEmbed = (url: string) =>
+  `${url}${url.includes("?") ? "&" : "?"}mute=1`;
 
 export const GoalDetail = ({ goal }: GoalDetailProps) => {
   return (
@@ -34,6 +39,20 @@ export const GoalDetail = ({ goal }: GoalDetailProps) => {
           <p key={index}>{parse(paragraph)}</p>
         ))}
       </GoalDetailText>
+
+      {goal.videoUrl && (
+        <GoalDetailVideo>
+          <iframe
+            src={toMutedEmbed(goal.videoUrl)}
+            title={`Video om mål ${goal.id}: ${goal.title}`}
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+          <GoalDetailVideoCaption>
+            Video om mål {goal.id}: {goal.title}
+          </GoalDetailVideoCaption>
+        </GoalDetailVideo>
+      )}
     </GoalDetailStyled>
   );
 };

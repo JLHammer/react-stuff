@@ -46,6 +46,7 @@ export const GoalListDivider = styled.div`
 
 export const GoalGrid = styled.div`
   display: grid;
+  align-items: start;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 12px;
 
@@ -59,9 +60,9 @@ export const GoalGrid = styled.div`
 `;
 
 export const GoalListLogo = styled.img`
-  align-self: center;
-  justify-self: center;
+  aspect-ratio: 1 / 1;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
   padding: ${({ theme }) => theme.spacing.xs};
 `;

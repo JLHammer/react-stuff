@@ -34,3 +34,21 @@ export const GoalDetailText = styled.div`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.s};
 `;
+
+export const GoalDetailVideo = styled.figure`
+  width: 100%;
+  max-width: 872px;
+
+  iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+`;
+
+export const GoalDetailVideoCaption = styled.figcaption`
+  margin-top: ${({ theme }) => theme.spacing.xs};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  color: ${({ theme }) => theme.colors.placeholder};
+`;

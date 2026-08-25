@@ -8,6 +8,7 @@ export const GoalCardStyled = styled(Link)<GoalCardStyledProps>`
   flex-direction: column;
   gap: 0.5rem;
   aspect-ratio: 1 / 1;
+  overflow: hidden;
   padding: ${({ theme }) => theme.spacing.xs};
   background-color: ${({ $color }) => $color};
   color: ${({ theme }) => theme.colors.white};
@@ -44,6 +45,7 @@ export const GoalCardTitle = styled.span`
 
 export const GoalCardIcon = styled.div`
   ${goalIcon}
-  width: 62%;
+  width: 58%;
+  min-height: 0;
   margin: auto auto 0;
 `;
