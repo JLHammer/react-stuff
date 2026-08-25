@@ -1,21 +1,22 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
+import { labelText } from "../../../styled/Mixins.styled";
 import type { NavbarStyledProps } from "../../../types/types.styled";
 
 export const NavbarStyled = styled.nav<NavbarStyledProps>`
   display: ${({ $display }) => $display || "flex"};
-  justify-content: space-between;
   align-items: center;
   color: ${({ $color, theme }) => $color || theme.colors.dark};
-  font-family: ${({ theme }) => theme.fonts.primary};
-  font-size: ${({ theme }) => theme.fontSizes.m};
+  font-family: ${({ theme }) => theme.fonts.secondary};
 `;
 
 export const NavbarLinkStyled = styled(NavLink)`
+  ${labelText}
   position: relative;
   display: inline-block;
   padding-bottom: 0.25rem;
   color: inherit;
+  white-space: nowrap;
   transition: color 0.2s ease;
 
   &::after {
@@ -30,7 +31,7 @@ export const NavbarLinkStyled = styled(NavLink)`
 
   &:hover,
   &:focus-visible {
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.blueDark};
   }
 
   &:hover::after,
@@ -39,10 +40,6 @@ export const NavbarLinkStyled = styled(NavLink)`
   }
 
   &.active {
-    color: ${({ theme }) => theme.colors.primaryDark};
-  }
-
-  &.active::after {
-    transform: scaleX(1);
+    color: ${({ theme }) => theme.colors.attention};
   }
 `;

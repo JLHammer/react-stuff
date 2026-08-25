@@ -17,10 +17,18 @@ export const NewsletterInput = styled.input`
 export const NewsletterButton = styled.button`
   ${formControl}
   padding: 0.5rem ${({ theme }) => theme.spacing.s};
-  background-color: ${({ theme }) => theme.colors.secondary};
-  color: ${({ theme }) => theme.colors.dark};
+  border-color: ${({ theme }) => theme.colors.blueDark};
+  background-color: ${({ theme }) => theme.colors.light};
+  color: ${({ theme }) => theme.colors.blueDark};
   font-size: ${({ theme }) => theme.fontSizes.s};
+  line-height: 1;
   cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    background-color: ${({ theme }) => theme.colors.blueDark};
+    color: ${({ theme }) => theme.colors.light};
+  }
 `;
 
 export const NewsletterStatus = styled.p`

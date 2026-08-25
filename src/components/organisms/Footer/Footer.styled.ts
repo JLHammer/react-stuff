@@ -9,7 +9,7 @@ import {
 import footerBackground from "../../../assets/images/footer-background.svg";
 
 export const FooterStyled = styled.footer`
-  background-color: ${({ theme }) => theme.colors.primaryDark};
+  background-color: ${({ theme }) => theme.colors.blueDark};
   background-image: url(${footerBackground});
   background-repeat: no-repeat;
   background-position: center;

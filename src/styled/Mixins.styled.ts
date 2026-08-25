@@ -36,7 +36,7 @@ export const formControl = css`
   padding: 0.5rem;
   border: 1px solid ${({ theme }) => theme.colors.secondary};
   border-radius: ${({ theme }) => theme.radii.s};
-  font-family: inherit;
+  font-family: ${({ theme }) => theme.fonts.secondary};
 `;
 
 export const goalIcon = css`

@@ -20,7 +20,7 @@ export const GoalNavigationStyled = styled.nav`
 export const GoalNavigationLink = styled(Link)`
   font-size: ${({ theme }) => theme.fontSizes.s};
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.primaryDark};
+  color: ${({ theme }) => theme.colors.blueDark};
 
   &:hover,
   &:focus-visible {

@@ -1,15 +1,18 @@
 export const theme = {
   colors: {
-    primary: "#2BBBDE",
-    primaryDark: "#036395",
-    secondary: "#EDEDED",
-    dark: "#111111",
-    light: "#ffffff",
+    light: "#f8f8f8",
+    dark: "#424242",
+    secondary: "#dddddd",
+    blueDark: "#035984",
+    primary: "#2175ac",
+    sectionHeading: "#3b835b",
+    placeholder: "#8fe7fd",
+    attention: "#26bde2",
   },
 
   fonts: {
-    primary: "Verdana, sans-serif",
-    secondary: "Arial, sans-serif",
+    primary: "'Oswald', sans-serif",
+    secondary: "'Roboto', sans-serif",
   },
 
   fontSizes: {
@@ -27,7 +30,8 @@ export const theme = {
   },
 
   sizes: {
-    topBarHeight: "3rem",
+    topBarHeight: "1.5rem",
+    headerLogoHeight: "5rem",
     footerLogoHeight: "3.75rem",
     footerLogoHeightLarge: "8.75rem",
   },

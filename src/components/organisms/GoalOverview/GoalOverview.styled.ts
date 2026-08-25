@@ -21,14 +21,14 @@ export const GoalOverviewLogo = styled.img`
 
 export const GoalGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: ${({ theme }) => theme.spacing.s};
 
   ${media("desktop")} {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   ${media("mobile")} {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 `;

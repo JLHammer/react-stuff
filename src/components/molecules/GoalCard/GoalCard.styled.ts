@@ -26,9 +26,10 @@ export const GoalCardNumber = styled.span`
 
 export const GoalCardTitle = styled.span`
   display: block;
-  font-size: ${({ theme }) => theme.fontSizes.s};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
   text-transform: uppercase;
   line-height: 1.2;
+  overflow-wrap: break-word;
 `;
 
 export const GoalCardIcon = styled.div`

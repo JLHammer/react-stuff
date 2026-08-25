@@ -33,7 +33,9 @@ function App() {
             <ListItem>
               <NavbarLink to="/kontakt">Kontakt os</NavbarLink>
             </ListItem>
-            <LoginButton textValue="Login" />
+            <ListItem>
+              <LoginButton textValue="Login" />
+            </ListItem>
           </UnorderedList>
         </Navbar>
       </Header>
