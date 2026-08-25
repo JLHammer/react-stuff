@@ -9,10 +9,6 @@ import { LoginButton } from "./components/atoms/LoginButton/LoginButton";
 import { Logo } from "./components/molecules/Logo/Logo";
 import { AppRouter } from "./router/AppRouter";
 import logo from "./assets/Logo.svg";
-import undpLogo from "./assets/images/undp-logo.svg";
-import msLogo from "./assets/images/ms-logo.svg";
-import globaleGymnasierLogo from "./assets/images/globale-gymnasier-logo.svg";
-import danidaLogo from "./assets/images/danida-logo.svg";
 
 function App() {
   return (
@@ -53,22 +49,7 @@ function App() {
       <Main>
         <AppRouter />
       </Main>
-      <Footer>
-        <Logo src={undpLogo} alt="UNDP" href="https://www.undp.org/" newTab />
-        <Logo
-          src={msLogo}
-          alt="Mellemfolkeligt Samvirke"
-          href="https://www.globalaktion.dk/"
-          newTab
-        />
-        <Logo
-          src={globaleGymnasierLogo}
-          alt="Globale Gymnasier"
-          href="https://www.globalegymnasier.dk/"
-          newTab
-        />
-        <Logo src={danidaLogo} alt="Danida" href="https://um.dk/danida" newTab />
-      </Footer>
+      <Footer />
     </BrowserRouter>
   );
 }

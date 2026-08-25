@@ -22,6 +22,16 @@ export const flexColumn = (gap?: Spacing) => css`
   `}
 `;
 
+export const flexRowCenter = (gap?: Spacing) => css`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  ${gap &&
+  css`
+    gap: ${({ theme }) => theme.spacing[gap]};
+  `}
+`;
+
 export const formControl = css`
   padding: 0.5rem;
   border: 1px solid ${({ theme }) => theme.colors.secondary};
@@ -45,4 +55,10 @@ export const goalIcon = css`
     stroke: currentColor;
     stroke-width: 2px;
   }
+`;
+
+export const labelText = css`
+  font-size: ${({ theme }) => theme.fontSizes.s};
+  font-weight: bold;
+  text-transform: uppercase;
 `;

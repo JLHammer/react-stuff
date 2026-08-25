@@ -29,6 +29,7 @@ export const theme = {
   sizes: {
     topBarHeight: "3rem",
     footerLogoHeight: "3.75rem",
+    footerLogoHeightLarge: "8.75rem",
   },
 
   maxWidths: {

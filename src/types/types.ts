@@ -19,8 +19,9 @@ export type MainProps = {
   children: React.ReactNode;
 };
 
-export type FooterProps = {
-  children: React.ReactNode;
+export type CountdownProps = {
+  label: string;
+  targetDate: string;
 };
 
 export type ContentWrapperProps = {
