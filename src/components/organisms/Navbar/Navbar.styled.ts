@@ -6,7 +6,6 @@ export const NavbarStyled = styled.nav`
   display: flex;
   align-items: center;
 
-  /* Figma spaces the nav items 35px apart. */
   ul {
     gap: 35px;
   }
@@ -19,7 +18,6 @@ export const NavbarStyled = styled.nav`
   }
 `;
 
-// Figma nav link: Oswald Bold 20, uppercase, black - accent on the current page.
 export const NavbarLinkStyled = styled(NavLink)`
   font-family: ${({ theme }) => theme.fonts.heading};
   font-size: ${({ theme }) => theme.fontSizes.m};

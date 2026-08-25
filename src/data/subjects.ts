@@ -1,6 +1,5 @@
 import type { SubjectData } from "../components/molecules/SubjectCard/SubjectCard.types";
 
-// The nine subject cards on Undervisning, in the order and colours Figma uses.
 export const subjects: SubjectData[] = [
   { id: "biologi", name: "Biologi", color: "#a41942" },
   { id: "bioteknologi", name: "Bioteknologi", color: "#dfa63b" },

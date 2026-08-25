@@ -7,7 +7,6 @@ export const FormStyled = styled.form`
   gap: ${({ theme }) => theme.spacing.s};
 `;
 
-// Figma right-aligns the button with the right edge of the 400px input column.
 export const FormActions = styled.div`
   display: flex;
   justify-content: flex-end;

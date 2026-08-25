@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { headingOswald } from "../../../styles/mixins";
 
-// Figma "Frame 1" on Byg dit eget mål: a 300x300 preview with a 1px #ccc border.
 export const GoalPreviewStyled = styled.div<{ $color: string }>`
   display: flex;
   align-items: center;

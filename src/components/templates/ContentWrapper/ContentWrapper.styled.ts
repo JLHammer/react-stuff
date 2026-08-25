@@ -5,7 +5,6 @@ export const ContentWrapperStyled = styled.div`
   width: 100%;
 `;
 
-// Figma "Main Header": a 100px band in #ededed holding the page title.
 export const ContentWrapperTitleBar = styled.div`
   display: flex;
   align-items: center;

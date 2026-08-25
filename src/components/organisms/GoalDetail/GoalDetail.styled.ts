@@ -7,14 +7,11 @@ export const GoalDetailStyled = styled.article`
   gap: ${({ theme }) => theme.spacing.m};
 `;
 
-// Figma h2: Open Sans SemiBold 24.
 export const GoalDetailByline = styled.h2`
   font-size: ${({ theme }) => theme.fontSizes.l};
   font-weight: 600;
 `;
 
-// Figma puts the 872x492 photo on the left and the 64px like button
-// against the right edge of the content column.
 export const GoalDetailMedia = styled.div`
   display: flex;
   align-items: flex-start;

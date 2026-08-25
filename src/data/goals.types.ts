@@ -1,4 +1,3 @@
-// Shape of one entry in the SDG dataset used across the site.
 export type GoalData = {
   id: string;
   title: string;

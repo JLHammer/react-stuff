@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { goalIcon } from "../../../styles/mixins";
 import type { GoalCardStyledProps } from "./GoalCard.types";
 
-// Figma places the official 200x200 tiles; we rebuild them from the goal data
-// so the number, title and pictogram stay in sync with the dataset.
 export const GoalCardStyled = styled(Link)<GoalCardStyledProps>`
   display: flex;
   flex-direction: column;

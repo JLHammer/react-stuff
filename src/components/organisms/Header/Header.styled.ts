@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { contentWidth, media } from "../../../styles/mixins";
 
-// Figma header: 1440x165 - a 30px topbar plus a 135px row.
 export const HeaderStyled = styled.header`
   display: flex;
   flex-direction: column;

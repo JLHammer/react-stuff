@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { contentWidth, headingOswald, media } from "../../../styles/mixins";
 
-// Figma "Goals Section": 1440x821 on a light grey band.
 export const GoalListStyled = styled.section`
   background-color: ${({ theme }) => theme.colors.bannerBackground};
   padding: ${({ theme }) => `${theme.spacing.m} 0 ${theme.spacing.xl}`};
@@ -16,7 +15,6 @@ export const GoalListTitle = styled.h2`
   text-align: center;
 `;
 
-// The 270x10 divider under the title: a hairline with a dot in the middle.
 export const GoalListDivider = styled.div`
   position: relative;
   width: 270px;
@@ -46,7 +44,6 @@ export const GoalListDivider = styled.div`
   }
 `;
 
-// 6 columns x 3 rows of 200px tiles with a 12px gutter.
 export const GoalGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));

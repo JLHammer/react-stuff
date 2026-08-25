@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { contentWidth, media } from "../../../styles/mixins";
 import footerBackground from "../../../assets/images/footer-background.svg";
 
-// Figma footer: 1440x600, world-map photo on deep blue, all copy in white.
 export const FooterStyled = styled.footer`
   background-color: ${({ theme }) => theme.colors.footerBackground};
   background-image: url(${footerBackground});
@@ -40,14 +39,12 @@ export const FooterSection = styled.section`
   gap: ${({ theme }) => theme.spacing.s};
 `;
 
-// Figma footer headings: Open Sans Bold 16, uppercase.
 export const FooterTitle = styled.h2`
   font-size: ${({ theme }) => theme.fontSizes.s};
   font-weight: 700;
   text-transform: uppercase;
 `;
 
-// Figma footer body: Open Sans Light 16.
 export const FooterText = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.s};
   font-weight: 300;

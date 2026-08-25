@@ -1,6 +1,5 @@
 import type { FaqEntry } from "./faq.types";
 
-// Questions and answers transcribed from the FAQ page in Figma.
 export const faq: FaqEntry[] = [
   {
     id: "hvad-er-verdensmaalene",

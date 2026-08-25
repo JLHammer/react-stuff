@@ -1,17 +1,9 @@
-// Every value below is taken from the Figma file
-// "FN's verdensmål - React Case" (IRpLkMYhQPZ8ErnoSfuv0V),
-// which is the source of truth for the design.
-
 export const theme = {
   colors: {
-    // Figma variable "Color" - topbar and the active nav link
     accent: "#2bbbde",
     white: "#ffffff",
-    // Figma sets body copy and headings in plain black
     text: "#000000",
-    // "Main Header" bar behind every page title
     bannerBackground: "#ededed",
-    // Figma variable "Lavender Blush" - every button
     buttonBackground: "#f7ebec",
     footerBackground: "#035984",
     border: "#cccccc",
@@ -24,7 +16,6 @@ export const theme = {
     body: "'Open Sans', sans-serif",
   },
 
-  // 14 / 16 / 20 / 24 / 30 px - the five sizes Figma actually uses
   fontSizes: {
     xs: "0.875rem",
     s: "1rem",

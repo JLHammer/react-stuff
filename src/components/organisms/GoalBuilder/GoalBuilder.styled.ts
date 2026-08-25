@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { media } from "../../../styles/mixins";
 
-// Figma puts the two inputs on the left and the 300x300 preview to the right.
 export const GoalBuilderStyled = styled.div`
   display: flex;
   align-items: flex-start;

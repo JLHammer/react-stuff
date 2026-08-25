@@ -7,7 +7,6 @@ import { GoalBuilderStyled, GoalBuilderFields } from "./GoalBuilder.styled";
 const defaultColor = "#27bddf";
 const defaultText = "Min måltekst";
 
-// Accepts "2bbbde" as well as "#2bbbde", the way a colour code is usually typed.
 const toCssColor = (value: string) => {
   const hex = value.trim().replace(/^#/, "");
 

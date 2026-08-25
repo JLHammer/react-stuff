@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { headingOswald } from "../../../styles/mixins";
 
-// Figma subject card: 400x219, flat colour, centred Oswald SemiBold 30 in white.
 export const SubjectCardStyled = styled.article<{ $color: string }>`
   display: flex;
   align-items: center;

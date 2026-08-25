@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { media } from "../../../styles/mixins";
 
-// Figma "Inputgroup": the label sits in a fixed column, the input starts at x=214.
 export const FormFieldStyled = styled.div`
   display: flex;
   align-items: flex-start;
