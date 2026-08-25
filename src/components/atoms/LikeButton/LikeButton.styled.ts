@@ -1,15 +1,23 @@
 import styled from "styled-components";
 
 export const LikeButtonStyled = styled.button`
-  display: block;
-  width: ${({ theme }) => theme.sizes.likeButtonSize};
-  height: ${({ theme }) => theme.sizes.likeButtonSize};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.xs};
   background: none;
   padding: 0;
   cursor: pointer;
 
   img {
-    width: 100%;
-    height: 100%;
+    display: block;
+    width: ${({ theme }) => theme.sizes.likeButtonSize};
+    height: ${({ theme }) => theme.sizes.likeButtonSize};
   }
+`;
+
+export const LikeButtonCount = styled.span`
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: ${({ theme }) => theme.fontSizes.m};
+  line-height: 1;
 `;
