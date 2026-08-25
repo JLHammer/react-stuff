@@ -65,3 +65,14 @@ export type CardProps = {
   $height: string;
   children?: React.ReactNode;
 };
+
+export type GoalData = {
+  id: string;
+  title: string;
+  byline: string;
+  description: string;
+  color: string;
+  icon: string;
+  image_url: string;
+  video_url: string;
+};

@@ -1,4 +1,6 @@
-export const goals = [
+import type { GoalData } from "../types/types";
+
+export const goals: GoalData[] = [
         {
             "id": "1",
             "title": "Afskaf fattigdom",
@@ -27,11 +29,11 @@ export const goals = [
             "color": "4c9f38",
             "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 107.9 75.48\"><defs></defs><g id=\"Layer_2\" data-name=\"Layer 2\"><g id=\"HEALTH\"><path class=\"cls-1\" d=\"M107.9,39.93c0-4.53-2.91-8.2-7.31-8.2-2.2,0-4.85,2.41-6.3,3.89-1.44-1.48-3.91-3.89-6.12-3.89-4.4,0-7.48,3.67-7.48,8.2A8.32,8.32,0,0,0,83,45.73h0L94.3,57l11.27-11.29h0A8.31,8.31,0,0,0,107.9,39.93Z\"/><path class=\"cls-1\" d=\"M59.87,75.48h-.11A1.86,1.86,0,0,1,58,73.94L52.32,40.57,43.64,56.66A1.86,1.86,0,0,1,40.17,56L36.49,30.29,29.75,45.43a1.86,1.86,0,0,1-1.7,1.1H1.85a1.86,1.86,0,0,1,0-3.71h25l8.87-19.91a1.85,1.85,0,0,1,3.52.49L43,50,51.6,34.08a1.86,1.86,0,0,1,3.46.57l5.3,30.91L79.7,1.32A1.84,1.84,0,0,1,81.33,0a1.87,1.87,0,0,1,1.82,1L93.32,22.14A1.85,1.85,0,0,1,90,23.75L81.88,7,61.64,74.16A1.85,1.85,0,0,1,59.87,75.48Z\"/></g></g></svg>",
             "image_url": "https://api.mediehuset.net/images/sdg/photos/3.jpg",
-            "video_url": "https://www.youtube.com/embed/m0C27MJcf-0&t=5s"
+            "video_url": "https://www.youtube.com/embed/m0C27MJcf-0?start=5"
         },
         {
             "id": "4",
-            "title": "Kvalitetsdannelse",
+            "title": "Kvalitets-dannelse",
             "byline": "Sikre alle lige adgang til kvalitetsuddannelse og fremme alles muligheder for livslang læring",
             "description": "Siden 2000 er der sket enorme fremskridt i forhold til målet om grundskoleuddannelse for alle. Den samlede indskrivningsrate i udviklingslande nåede op på 91 procent i 2015, og antallet af børn, der dropper ud af skolen, er faldet med næsten halvdelen. Der har også været en dramatisk stigning i antallet af børn, der kan læse, og der er flere piger i skole end nogensinde før. Disse er alle bemærkelsesværdige succeser.\n\nFremgangen har også mødt store udfordringer i udviklingslandene på grund af stor fattigdom, væbnede konflikter og andre nødsituationer. I det vestlige Asien og Nordafrika har væbnede konflikter skabt en stigning i andelen af børn, som ikke går i skole. Det er en bekymrende tendens. Mens Afrika syd for Sahara har gjort størst fremskridt blandt alle udviklingslande i forhold til indskrivningen i grundskolen - fra 52 procent i 1990 og op til 78 procent i 2012 – eksisterer der forsat store forskelle.\n\nBørn fra de fattigste husholdninger har fire gange større sandsynlighed for at være ude af skolen end de rigeste husstande. Forskellene mellem landdistrikter og byområder er også fortsat høj.\n\nOpnåelse af uddannelse af høj kvalitet for alle, bekræfter troen på, at uddannelse er en af de mest kraftfulde og gennemprøvede motorer for en bæredygtig udvikling. Dette mål skal sikre, at alle piger og drenge fuldfører en gratis primær- og sekundær skolegang inden 2030. Det sigter også mod at give lige adgang til erhvervsuddannelser samt fjerne kønsrelaterede og økonomiske uligheder med henblik på at opnå universel adgang til en videregående uddannelse af høj kvalitet.\n\nKvalitetsuddannelse er et af de 17 verdensmål, som indgår i udviklingsdagsordenen for bæredygtig udvikling frem mod 2030. En integreret tilgang er afgørende for fremskridt på tværs af de forskellige mål.",
             "color": "c5192d",
