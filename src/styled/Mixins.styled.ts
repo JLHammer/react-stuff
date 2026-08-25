@@ -28,3 +28,21 @@ export const formControl = css`
   border-radius: ${({ theme }) => theme.radii.s};
   font-family: inherit;
 `;
+
+export const goalIcon = css`
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .cls-1 {
+    fill: currentColor;
+  }
+
+  .cls-2 {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2px;
+  }
+`;

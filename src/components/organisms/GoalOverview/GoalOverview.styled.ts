@@ -13,6 +13,12 @@ export const GoalOverviewTitle = styled.h2`
   margin-bottom: ${({ theme }) => theme.spacing.m};
 `;
 
+export const GoalOverviewLogo = styled.img`
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: auto;
+`;
+
 export const GoalGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(6, 1fr);

@@ -58,14 +58,6 @@ export type ContactFormValues = {
   message: string;
 };
 
-export type CardProps = {
-  src: string;
-  alt: string;
-  $width: string;
-  $height: string;
-  children?: React.ReactNode;
-};
-
 export type GoalData = {
   id: string;
   title: string;
@@ -76,3 +68,7 @@ export type GoalData = {
   image_url: string;
   video_url: string;
 };
+
+export type GoalCardProps = Pick<GoalData, "id" | "title" | "color" | "icon">;
+
+export type GoalIconProps = Pick<GoalData, "icon">;

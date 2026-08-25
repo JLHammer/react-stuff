@@ -8,7 +8,6 @@ export type UnorderedListStyledProps = {
   $gap?: string;
 };
 
-export type CardStyledProps = {
-  $width: string;
-  $height: string;
+export type GoalCardStyledProps = {
+  $color: string;
 };
