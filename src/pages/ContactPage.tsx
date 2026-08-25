@@ -1,5 +1,5 @@
-import { ContentWrapper } from "../components/content/ContentWrapper/ContentWrapper";
-import { ContactForm } from "../components/content/ContactForm/ContactForm";
+import { ContentWrapper } from "../components/templates/ContentWrapper/ContentWrapper";
+import { ContactForm } from "../components/organisms/ContactForm/ContactForm";
 
 export const ContactPage = () => {
   return (

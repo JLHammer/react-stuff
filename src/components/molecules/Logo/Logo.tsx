@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import type { LogoProps } from "../../../types/types";
-import { AnchorLink } from "../AnchorLink/AnchorLink";
+import { AnchorLink } from "../../atoms/AnchorLink/AnchorLink";
 
 export const Logo = ({ src, alt, href, newTab }: LogoProps) => {
   if (href.startsWith("/")) {

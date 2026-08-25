@@ -1,4 +1,4 @@
-import { Card } from "../Card/Card";
+import { Card } from "../../molecules/Card/Card";
 import {
   GoalOverviewStyled,
   GoalOverviewTitle,

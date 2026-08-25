@@ -1,5 +1,5 @@
-import { ContentWrapper } from "../components/content/ContentWrapper/ContentWrapper";
-import { GoalOverview } from "../components/content/GoalOverview/GoalOverview";
+import { ContentWrapper } from "../components/templates/ContentWrapper/ContentWrapper";
+import { GoalOverview } from "../components/organisms/GoalOverview/GoalOverview";
 
 export const HomePage = () => {
   return (
@@ -18,8 +18,8 @@ export const HomePage = () => {
       <p>
         FN's Verdensmål blev vedtaget af verdens stats- og regeringsledere på
         FN-topmødet i New York den 25. september 2015. De markerede en hidtil
-        uset ambitiøs og transformativ udviklingsdagsorden. Målene trådte i
-        kraft den 1. januar 2016 og skal frem til 2030 sætte os kurs mod en mere
+        uset ambitiøs og transformativ udviklingsdagsorden. Målene trådte i kraft
+        den 1. januar 2016 og skal frem til 2030 sætte os kurs mod en mere
         bæredygtig udvikling for både mennesker og planeten, vi bor på.
       </p>
 

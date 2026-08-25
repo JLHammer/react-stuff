@@ -1,4 +1,4 @@
-import { ContentWrapper } from "../components/content/ContentWrapper/ContentWrapper";
+import { ContentWrapper } from "../components/templates/ContentWrapper/ContentWrapper";
 
 export const EducationPage = () => {
   return (

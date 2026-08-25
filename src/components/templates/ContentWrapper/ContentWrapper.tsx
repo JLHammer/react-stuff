@@ -13,8 +13,6 @@ export const ContentWrapper = ({
   showTitle = true,
   children,
 }: ContentWrapperProps) => {
-  // The description is not part of the layout - it tells the browser tab and
-  // search engines what the page is about.
   useEffect(() => {
     document.title = title;
     document

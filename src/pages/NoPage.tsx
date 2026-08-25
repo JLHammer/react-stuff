@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { ContentWrapper } from "../components/content/ContentWrapper/ContentWrapper";
+import { ContentWrapper } from "../components/templates/ContentWrapper/ContentWrapper";
 
 export const NoPage = () => {
   return (
