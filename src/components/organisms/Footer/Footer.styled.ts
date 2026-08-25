@@ -60,11 +60,19 @@ export const FooterLogoRow = styled.div`
     display: block;
     height: ${({ theme }) => theme.sizes.footerLogoHeight};
     width: auto;
+    max-width: 100%;
   }
 `;
 
 export const FooterPartnerRow = styled(FooterLogoRow)`
   img {
     height: ${({ theme }) => theme.sizes.footerLogoHeightLarge};
+  }
+
+  ${media("mobile")} {
+    img {
+      height: auto;
+      max-width: 100%;
+    }
   }
 `;

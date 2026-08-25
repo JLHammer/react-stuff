@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { contentWidth, headingOswald } from "../../../styles/mixins";
+import { contentWidth, headingOswald, media } from "../../../styles/mixins";
 
 export const ContentWrapperStyled = styled.div`
   width: 100%;
@@ -10,11 +10,19 @@ export const ContentWrapperTitleBar = styled.div`
   align-items: center;
   min-height: ${({ theme }) => theme.sizes.bannerHeight};
   background-color: ${({ theme }) => theme.colors.bannerBackground};
+
+  ${media("mobile")} {
+    min-height: ${({ theme }) => theme.sizes.bannerHeightSmall};
+  }
 `;
 
 export const ContentWrapperTitle = styled.h1`
   ${contentWidth}
   ${headingOswald}
+
+  ${media("mobile")} {
+    font-size: ${({ theme }) => theme.fontSizes.l};
+  }
 `;
 
 export const ContentWrapperContent = styled.div`
@@ -24,4 +32,9 @@ export const ContentWrapperContent = styled.div`
   gap: ${({ theme }) => theme.spacing.m};
   padding-top: ${({ theme }) => theme.spacing.m};
   padding-bottom: ${({ theme }) => theme.spacing.xl};
+
+  ${media("mobile")} {
+    gap: ${({ theme }) => theme.spacing.s};
+    padding-bottom: ${({ theme }) => theme.spacing.l};
+  }
 `;

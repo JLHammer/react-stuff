@@ -28,4 +28,12 @@ export const HeaderRowStyled = styled.div`
     padding-top: ${({ theme }) => theme.spacing.s};
     padding-bottom: ${({ theme }) => theme.spacing.s};
   }
+
+  ${media("mobile")} {
+    min-height: 0;
+
+    img {
+      height: ${({ theme }) => theme.sizes.headerLogoHeightSmall};
+    }
+  }
 `;

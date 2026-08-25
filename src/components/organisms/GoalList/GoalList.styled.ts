@@ -4,6 +4,10 @@ import { contentWidth, headingOswald, media } from "../../../styles/mixins";
 export const GoalListStyled = styled.section`
   background-color: ${({ theme }) => theme.colors.bannerBackground};
   padding: ${({ theme }) => `${theme.spacing.m} 0 ${theme.spacing.xl}`};
+
+  ${media("mobile")} {
+    padding: ${({ theme }) => `${theme.spacing.s} 0 ${theme.spacing.l}`};
+  }
 `;
 
 export const GoalListInner = styled.div`
@@ -13,6 +17,10 @@ export const GoalListInner = styled.div`
 export const GoalListTitle = styled.h2`
   ${headingOswald}
   text-align: center;
+
+  ${media("mobile")} {
+    font-size: ${({ theme }) => theme.fontSizes.l};
+  }
 `;
 
 export const GoalListDivider = styled.div`

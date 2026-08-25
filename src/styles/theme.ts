@@ -35,7 +35,9 @@ export const theme = {
   sizes: {
     topBarHeight: "30px",
     bannerHeight: "100px",
+    bannerHeightSmall: "72px",
     headerLogoHeight: "108px",
+    headerLogoHeightSmall: "72px",
     footerLogoHeight: "3.75rem",
     footerLogoHeightLarge: "8.75rem",
     inputWidth: "400px",
@@ -43,6 +45,7 @@ export const theme = {
     textareaHeight: "143px",
     labelWidth: "125px",
     likeButtonSize: "64px",
+    subjectCardHeight: "219px",
   },
 
   maxWidths: {

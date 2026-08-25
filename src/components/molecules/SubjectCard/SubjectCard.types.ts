@@ -5,3 +5,7 @@ export type SubjectData = {
 };
 
 export type SubjectCardProps = SubjectData;
+
+export type SubjectCardStyledProps = {
+  $color: string;
+};

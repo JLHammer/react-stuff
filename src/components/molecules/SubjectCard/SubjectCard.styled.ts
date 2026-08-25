@@ -1,18 +1,32 @@
 import styled from "styled-components";
-import { headingOswald } from "../../../styles/mixins";
+import { headingOswald, media } from "../../../styles/mixins";
+import type { SubjectCardStyledProps } from "./SubjectCard.types";
 
-export const SubjectCardStyled = styled.article<{ $color: string }>`
+export const SubjectCardStyled = styled.article<SubjectCardStyledProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 219px;
+  min-height: ${({ theme }) => theme.sizes.subjectCardHeight};
   padding: ${({ theme }) => theme.spacing.s};
   background-color: ${({ $color }) => $color};
-  overflow: hidden;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+
+  ${media("mobile")} {
+    min-height: 160px;
+  }
 `;
 
 export const SubjectCardTitle = styled.h3`
   ${headingOswald}
   color: ${({ theme }) => theme.colors.white};
   text-align: center;
+  overflow-wrap: anywhere;
+
+  ${media("mobile")} {
+    font-size: ${({ theme }) => theme.fontSizes.l};
+  }
 `;
