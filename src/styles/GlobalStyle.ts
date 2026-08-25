@@ -4,6 +4,16 @@ import { preflight } from "./preflight";
 export const GlobalStyle = createGlobalStyle`
   ${preflight}
 
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
   body {
     background-color: ${({ theme }) => theme.colors.white};
     font-family: ${({ theme }) => theme.fonts.body};
