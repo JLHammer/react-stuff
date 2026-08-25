@@ -11,11 +11,8 @@ export const FormActions = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  max-width: calc(
-    ${({ theme }) => theme.sizes.labelWidth} +
-      ${({ theme }) => theme.spacing.s} +
-      ${({ theme }) => theme.sizes.inputWidth}
-  );
+  max-width: ${({ theme }) =>
+    `calc(${theme.sizes.labelWidth} + ${theme.spacing.s} + ${theme.sizes.inputWidth})`};
 
   ${media("mobile")} {
     max-width: 100%;
