@@ -24,20 +24,9 @@ export const GoalDetailMedia = styled.div`
   }
 `;
 
-export const GoalDetailFigure = styled.figure`
+export const GoalDetailVideo = styled.figure`
   flex: 0 1 872px;
   min-width: 0;
-`;
-
-export const GoalDetailText = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.s};
-`;
-
-export const GoalDetailVideo = styled.figure`
-  width: 100%;
-  max-width: 872px;
 
   iframe {
     display: block;
@@ -45,10 +34,14 @@ export const GoalDetailVideo = styled.figure`
     aspect-ratio: 16 / 9;
     border: 0;
   }
+
+  ${media("tablet")} {
+    width: 100%;
+  }
 `;
 
-export const GoalDetailVideoCaption = styled.figcaption`
-  margin-top: ${({ theme }) => theme.spacing.xs};
-  font-size: ${({ theme }) => theme.fontSizes.xs};
-  color: ${({ theme }) => theme.colors.placeholder};
+export const GoalDetailText = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.s};
 `;

@@ -1,15 +1,12 @@
 import parse from "html-react-parser";
 import type { GoalDetailProps } from "./GoalDetail.types";
-import { Image } from "../../atoms/Image/Image";
 import { LikeButton } from "../../atoms/LikeButton/LikeButton";
 import {
   GoalDetailStyled,
   GoalDetailByline,
   GoalDetailMedia,
-  GoalDetailFigure,
-  GoalDetailText,
   GoalDetailVideo,
-  GoalDetailVideoCaption,
+  GoalDetailText,
 } from "./GoalDetail.styled";
 
 const toParagraphs = (description: string) => description.split("\n\n");
@@ -23,14 +20,16 @@ export const GoalDetail = ({ goal }: GoalDetailProps) => {
       <GoalDetailByline>{goal.byline}</GoalDetailByline>
 
       <GoalDetailMedia>
-        <GoalDetailFigure>
-          <Image
-            src={goal.imageUrl}
-            alt={`Mål ${goal.id}: ${goal.title}`}
-            width={872}
-            height={492}
-          />
-        </GoalDetailFigure>
+        {goal.videoUrl && (
+          <GoalDetailVideo>
+            <iframe
+              src={toMutedEmbed(goal.videoUrl)}
+              title={`Video om mål ${goal.id}: ${goal.title}`}
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </GoalDetailVideo>
+        )}
         <LikeButton label={`Synes godt om mål ${goal.id}: ${goal.title}`} />
       </GoalDetailMedia>
 
@@ -39,20 +38,6 @@ export const GoalDetail = ({ goal }: GoalDetailProps) => {
           <p key={index}>{parse(paragraph)}</p>
         ))}
       </GoalDetailText>
-
-      {goal.videoUrl && (
-        <GoalDetailVideo>
-          <iframe
-            src={toMutedEmbed(goal.videoUrl)}
-            title={`Video om mål ${goal.id}: ${goal.title}`}
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-          <GoalDetailVideoCaption>
-            Video om mål {goal.id}: {goal.title}
-          </GoalDetailVideoCaption>
-        </GoalDetailVideo>
-      )}
     </GoalDetailStyled>
   );
 };

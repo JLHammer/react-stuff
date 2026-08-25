@@ -14,7 +14,6 @@ skriftstørrelser og mål i `src/styles/theme.ts` er hentet derfra.
 | `AnchorLink`   | `<a>`      | Eksterne links                                 |
 | `Button`       | `<button>` | Figmas Lavender Blush-knap                     |
 | `GoalIcon`     | `<svg>`    | Parser ikon-SVG'en fra måldataen               |
-| `Image`        | `<img>`    |                                                |
 | `Input`        | `<input>`  | Bliver til `<textarea>`, når `rows` er sat     |
 | `Label`        | `<label>`  | Tilføjer den røde `*` ved påkrævede felter     |
 | `LikeButton`   | `<button>` | Skifter mellem de to hjerte-ikoner fra Figma   |
@@ -32,7 +31,7 @@ skriftstørrelser og mål i `src/styles/theme.ts` er hentet derfra.
 | `FormField`      | `Label` + `Input` + fejlbesked i Figmas "Inputgroup" |
 | `GoalCard`       | ét verdensmål som 200×200-flise              |
 | `GoalPreview`    | 300×300-forhåndsvisning på "Byg dit eget mål"|
-| `Logo`           | `AnchorLink`/`Link` + `Image`                |
+| `Logo`           | `AnchorLink`/`Link` + `<img>`                |
 | `NewsletterForm` | `Input` + `Button`                           |
 | `SubjectCard`    | ét fag som 400×219-kort                      |
 
@@ -43,7 +42,7 @@ skriftstørrelser og mål i `src/styles/theme.ts` er hentet derfra.
 | `ContactForm` | tre `FormField` + `Button`                      |
 | `Footer`      | `Logo`, `NewsletterForm` og `Countdown`         |
 | `GoalBuilder` | to `FormField` + `GoalPreview`                  |
-| `GoalDetail`  | manchet, foto og `LikeButton`                   |
+| `GoalDetail`  | manchet, video og `LikeButton`                  |
 | `GoalList`    | de 17 `GoalCard` i et 6×3-grid                  |
 | `Header`      | `TopBar` + `Logo` + `Navbar`                    |
 | `LoginForm`   | to `FormField` + `Button`                       |
