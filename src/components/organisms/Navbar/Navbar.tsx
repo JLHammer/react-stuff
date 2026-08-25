@@ -1,6 +1,27 @@
+import { useState } from "react";
 import type { NavbarProps } from "./Navbar.types";
-import { NavbarStyled } from "./Navbar.styled";
+import { MenuToggle } from "../../atoms/MenuToggle/MenuToggle";
+import { NavbarStyled, NavbarPanel } from "./Navbar.styled";
+
+const panelId = "primary-navigation";
 
 export const Navbar = ({ children }: NavbarProps) => {
-  return <NavbarStyled>{children}</NavbarStyled>;
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <NavbarStyled>
+      <MenuToggle
+        isOpen={isOpen}
+        controls={panelId}
+        onClick={() => setIsOpen(!isOpen)}
+      />
+      <NavbarPanel
+        id={panelId}
+        $isOpen={isOpen}
+        onClick={() => setIsOpen(false)}
+      >
+        {children}
+      </NavbarPanel>
+    </NavbarStyled>
+  );
 };

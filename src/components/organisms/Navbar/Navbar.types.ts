@@ -9,3 +9,7 @@ export type NavbarLinkProps = {
   end?: boolean;
   children: ReactNode;
 };
+
+export type NavbarPanelProps = {
+  $isOpen: boolean;
+};
