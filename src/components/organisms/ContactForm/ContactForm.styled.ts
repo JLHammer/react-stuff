@@ -12,7 +12,8 @@ export const FormActions = styled.div`
   justify-content: flex-end;
   width: 100%;
   max-width: calc(
-    ${({ theme }) => theme.sizes.labelWidth} + ${({ theme }) => theme.spacing.s} +
+    ${({ theme }) => theme.sizes.labelWidth} +
+      ${({ theme }) => theme.spacing.s} +
       ${({ theme }) => theme.sizes.inputWidth}
   );
 
