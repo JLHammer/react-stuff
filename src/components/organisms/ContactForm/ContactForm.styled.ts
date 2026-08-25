@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { formControl } from "../../../styled/Mixins.styled";
 
 export const ContactFormStyled = styled.form`
   display: grid;
@@ -16,18 +17,12 @@ export const RequiredMark = styled.span`
 `;
 
 export const ContactFormInput = styled.input`
-  padding: 0.5rem;
-  border: 1px solid ${({ theme }) => theme.colors.secondary};
-  border-radius: ${({ theme }) => theme.radii.s};
-  font-family: inherit;
+  ${formControl}
   font-size: ${({ theme }) => theme.fontSizes.m};
 `;
 
 export const ContactFormTextarea = styled.textarea`
-  padding: 0.5rem;
-  border: 1px solid ${({ theme }) => theme.colors.secondary};
-  border-radius: ${({ theme }) => theme.radii.s};
-  font-family: inherit;
+  ${formControl}
   font-size: ${({ theme }) => theme.fontSizes.m};
   resize: vertical;
 `;
@@ -46,10 +41,8 @@ export const ContactFormActions = styled.div`
 `;
 
 export const ContactFormButton = styled.button`
+  ${formControl}
   padding: 0.5rem ${({ theme }) => theme.spacing.s};
-  border: 1px solid ${({ theme }) => theme.colors.secondary};
-  border-radius: ${({ theme }) => theme.radii.s};
-  font-family: inherit;
   font-size: ${({ theme }) => theme.fontSizes.s};
   cursor: pointer;
 `;

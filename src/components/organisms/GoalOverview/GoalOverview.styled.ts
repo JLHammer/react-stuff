@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "../../../styled/Mixins.styled";
 
 export const GoalOverviewStyled = styled.section`
   background-color: ${({ theme }) => theme.colors.secondary};
@@ -17,11 +18,11 @@ export const GoalGrid = styled.div`
   grid-template-columns: repeat(6, 1fr);
   gap: ${({ theme }) => theme.spacing.s};
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+  ${media("desktop")} {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  ${media("mobile")} {
     grid-template-columns: repeat(2, 1fr);
   }
 `;
