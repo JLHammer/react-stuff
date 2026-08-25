@@ -15,6 +15,12 @@ export type NavbarProps = {
   children: React.ReactNode;
 };
 
+export type NavbarLinkProps = {
+  to: string;
+  end?: boolean;
+  children: React.ReactNode;
+};
+
 export type MainProps = {
   children: React.ReactNode;
 };

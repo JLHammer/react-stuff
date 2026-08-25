@@ -1,8 +1,9 @@
-import { BrowserRouter, NavLink } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import { Header } from "./components/organisms/Header/Header";
 import { Main } from "./components/templates/Main/Main";
 import { Footer } from "./components/organisms/Footer/Footer";
 import { Navbar } from "./components/organisms/Navbar/Navbar";
+import { NavbarLink } from "./components/organisms/Navbar/NavbarLink";
 import { UnorderedList } from "./components/atoms/UnorderedList/UnorderedList";
 import { ListItem } from "./components/atoms/ListItem/ListItem";
 import { LoginButton } from "./components/atoms/LoginButton/LoginButton";
@@ -18,29 +19,19 @@ function App() {
         <Navbar>
           <UnorderedList>
             <ListItem>
-              <NavLink to="/" end>
-                Verdensmålene
-              </NavLink>
+              <NavbarLink to="/">Verdensmålene</NavbarLink>
             </ListItem>
             <ListItem>
-              <NavLink to="/undervisning" end>
-                Undervisning
-              </NavLink>
+              <NavbarLink to="/undervisning">Undervisning</NavbarLink>
             </ListItem>
             <ListItem>
-              <NavLink to="/byg-dit-eget-maal" end>
-                Byg dit eget mål
-              </NavLink>
+              <NavbarLink to="/byg-dit-eget-maal">Byg dit eget mål</NavbarLink>
             </ListItem>
             <ListItem>
-              <NavLink to="/faq" end>
-                FAQ
-              </NavLink>
+              <NavbarLink to="/faq">FAQ</NavbarLink>
             </ListItem>
             <ListItem>
-              <NavLink to="/kontakt" end>
-                Kontakt os
-              </NavLink>
+              <NavbarLink to="/kontakt">Kontakt os</NavbarLink>
             </ListItem>
             <LoginButton textValue="Login" />
           </UnorderedList>
