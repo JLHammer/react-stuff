@@ -1,6 +1,10 @@
 import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
-import type { ContactFormValues } from "./ContactForm.types";
+import type {
+  ContactFormErrors,
+  ContactFormValues,
+} from "./ContactForm.types";
+import { hasErrors, isEmail, isFilled } from "../../../utils/validation";
 import { FormField } from "../../molecules/FormField/FormField";
 import { Button } from "../../atoms/Button/Button";
 import { FormStyled, FormActions, FormStatus } from "./ContactForm.styled";
@@ -11,20 +15,55 @@ const emptyValues: ContactFormValues = {
   message: "",
 };
 
+const validate = (values: ContactFormValues): ContactFormErrors => {
+  const errors: ContactFormErrors = {};
+
+  if (!isFilled(values.name)) {
+    errors.name = "Skriv dit navn.";
+  }
+
+  if (!isFilled(values.email)) {
+    errors.email = "Skriv din email.";
+  } else if (!isEmail(values.email)) {
+    errors.email = "Skriv en gyldig email, fx navn@eksempel.dk.";
+  }
+
+  if (!isFilled(values.message)) {
+    errors.message = "Skriv en besked.";
+  }
+
+  return errors;
+};
+
 export const ContactForm = () => {
   const [values, setValues] = useState<ContactFormValues>(emptyValues);
+  const [errors, setErrors] = useState<ContactFormErrors>({});
   const [status, setStatus] = useState("");
 
   const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = event.target;
+    const nextValues = { ...values, [name]: value };
 
-    setValues({ ...values, [name]: value });
+    setValues(nextValues);
+
+    if (hasErrors(errors)) {
+      setErrors(validate(nextValues));
+    }
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const nextErrors = validate(values);
+
+    setErrors(nextErrors);
+
+    if (hasErrors(nextErrors)) {
+      setStatus("");
+      return;
+    }
 
     setStatus("Tak for din besked - vi vender tilbage hurtigst muligt.");
     setValues(emptyValues);
@@ -32,7 +71,7 @@ export const ContactForm = () => {
 
   return (
     <>
-      <FormStyled onSubmit={handleSubmit}>
+      <FormStyled onSubmit={handleSubmit} noValidate>
         <FormField
           id="name"
           name="name"
@@ -40,6 +79,7 @@ export const ContactForm = () => {
           placeholder="Indtast dit navn"
           value={values.name}
           onChange={handleChange}
+          error={errors.name}
           required
         />
         <FormField
@@ -50,6 +90,7 @@ export const ContactForm = () => {
           placeholder="Indtast din email"
           value={values.email}
           onChange={handleChange}
+          error={errors.email}
           required
         />
         <FormField
@@ -59,6 +100,7 @@ export const ContactForm = () => {
           placeholder="Indtast din besked"
           value={values.message}
           onChange={handleChange}
+          error={errors.message}
           rows={6}
           required
         />

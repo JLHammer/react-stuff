@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
-import type { LoginFormValues } from "./LoginForm.types";
+import type { LoginFormErrors, LoginFormValues } from "./LoginForm.types";
+import { hasErrors, isEmail, isFilled } from "../../../utils/validation";
 import { FormField } from "../../molecules/FormField/FormField";
 import { Button } from "../../atoms/Button/Button";
 import {
@@ -14,27 +15,58 @@ const emptyValues: LoginFormValues = {
   password: "",
 };
 
+const validate = (values: LoginFormValues): LoginFormErrors => {
+  const errors: LoginFormErrors = {};
+
+  if (!isFilled(values.email)) {
+    errors.email = "Skriv din email.";
+  } else if (!isEmail(values.email)) {
+    errors.email = "Skriv en gyldig email, fx navn@eksempel.dk.";
+  }
+
+  if (!isFilled(values.password)) {
+    errors.password = "Skriv din adgangskode.";
+  }
+
+  return errors;
+};
+
 export const LoginForm = () => {
   const [values, setValues] = useState<LoginFormValues>(emptyValues);
+  const [errors, setErrors] = useState<LoginFormErrors>({});
   const [status, setStatus] = useState("");
 
   const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = event.target;
+    const nextValues = { ...values, [name]: value };
 
-    setValues({ ...values, [name]: value });
+    setValues(nextValues);
+
+    if (hasErrors(errors)) {
+      setErrors(validate(nextValues));
+    }
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    setStatus(`Vi forsøger at logge ${values.email} ind.`);
+    const nextErrors = validate(values);
+
+    setErrors(nextErrors);
+
+    if (hasErrors(nextErrors)) {
+      setStatus("");
+      return;
+    }
+
+    setStatus(`Du er nu logget ind!`);
   };
 
   return (
     <>
-      <FormStyled onSubmit={handleSubmit}>
+      <FormStyled onSubmit={handleSubmit} noValidate>
         <FormField
           id="login-email"
           name="email"
@@ -43,6 +75,7 @@ export const LoginForm = () => {
           placeholder="Indtast din email"
           value={values.email}
           onChange={handleChange}
+          error={errors.email}
           required
         />
         <FormField
@@ -53,6 +86,7 @@ export const LoginForm = () => {
           placeholder="Indtast din adgangskode"
           value={values.password}
           onChange={handleChange}
+          error={errors.password}
           required
         />
 

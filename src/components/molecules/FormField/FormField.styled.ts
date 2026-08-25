@@ -23,6 +23,15 @@ export const FormFieldStyled = styled.div`
 `;
 
 export const FormFieldControl = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
   flex: 1 1 ${({ theme }) => theme.sizes.inputWidth};
   max-width: ${({ theme }) => theme.sizes.inputWidth};
+`;
+
+export const FormFieldError = styled.p`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  color: ${({ theme }) => theme.colors.required};
 `;

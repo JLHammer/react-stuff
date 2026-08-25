@@ -10,4 +10,10 @@ export type InputProps = {
   ariaLabel?: string;
   required?: boolean;
   rows?: number;
+  hasError?: boolean;
+  describedBy?: string;
+};
+
+export type InputStyledProps = {
+  $hasError?: boolean;
 };

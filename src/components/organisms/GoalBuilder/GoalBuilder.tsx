@@ -1,56 +1,84 @@
 import { useState } from "react";
 import type { ChangeEvent } from "react";
+import type {
+  GoalBuilderErrors,
+  GoalBuilderValues,
+} from "./GoalBuilder.types";
+import { isFilled, isHexColor } from "../../../utils/validation";
 import { FormField } from "../../molecules/FormField/FormField";
 import { GoalPreview } from "../../molecules/GoalPreview/GoalPreview";
 import { GoalBuilderStyled, GoalBuilderFields } from "./GoalBuilder.styled";
 
 const defaultColor = "#27bddf";
 const defaultText = "Min måltekst";
+const maxTextLength = 60;
 
-const toCssColor = (value: string) => {
-  const hex = value.trim().replace(/^#/, "");
-
-  return /^[0-9a-f]{3}$|^[0-9a-f]{6}$/i.test(hex) ? `#${hex}` : defaultColor;
+const emptyValues: GoalBuilderValues = {
+  goalText: "",
+  goalColor: "",
 };
 
+const validate = (values: GoalBuilderValues): GoalBuilderErrors => {
+  const errors: GoalBuilderErrors = {};
+
+  if (values.goalText.length > maxTextLength) {
+    errors.goalText = `Måltekst må højst være ${maxTextLength} tegn.`;
+  }
+
+  if (isFilled(values.goalColor) && !isHexColor(values.goalColor)) {
+    errors.goalColor = "Skriv en gyldig farvekode, fx #2bbbde.";
+  }
+
+  return errors;
+};
+
+const toCssColor = (value: string) =>
+  isHexColor(value) ? `#${value.trim().replace(/^#/, "")}` : defaultColor;
+
 export const GoalBuilder = () => {
-  const [text, setText] = useState("");
-  const [color, setColor] = useState("");
+  const [values, setValues] = useState<GoalBuilderValues>(emptyValues);
+  const [errors, setErrors] = useState<GoalBuilderErrors>({});
 
-  const handleTextChange = (
+  const handleChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setText(event.target.value);
-  };
+    const { name, value } = event.target;
+    const nextValues = { ...values, [name]: value };
 
-  const handleColorChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setColor(event.target.value);
+    setValues(nextValues);
+    setErrors(validate(nextValues));
   };
 
   return (
     <GoalBuilderStyled>
-      <GoalBuilderFields onSubmit={(event) => event.preventDefault()}>
+      <GoalBuilderFields
+        onSubmit={(event) => event.preventDefault()}
+        noValidate
+      >
         <FormField
           id="goal-text"
           name="goalText"
           label="Måltekst"
           placeholder="Indtast din måltekst"
-          value={text}
-          onChange={handleTextChange}
+          value={values.goalText}
+          onChange={handleChange}
+          error={errors.goalText}
         />
         <FormField
           id="goal-color"
           name="goalColor"
           label="Farvekode"
           placeholder="Fx #2bbbde"
-          value={color}
-          onChange={handleColorChange}
+          value={values.goalColor}
+          onChange={handleChange}
+          error={errors.goalColor}
         />
       </GoalBuilderFields>
 
-      <GoalPreview text={text || defaultText} color={toCssColor(color)} />
+      <GoalPreview
+        text={values.goalText || defaultText}
+        color={toCssColor(values.goalColor)}
+      />
     </GoalBuilderStyled>
   );
 };

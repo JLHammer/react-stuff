@@ -11,6 +11,8 @@ export const Input = ({
   ariaLabel,
   required,
   rows,
+  hasError,
+  describedBy,
 }: InputProps) => {
   if (rows) {
     return (
@@ -20,9 +22,12 @@ export const Input = ({
         rows={rows}
         placeholder={placeholder}
         aria-label={ariaLabel}
+        aria-invalid={hasError || undefined}
+        aria-describedby={describedBy}
         value={value}
         onChange={onChange}
         required={required}
+        $hasError={hasError}
       />
     );
   }
@@ -34,9 +39,12 @@ export const Input = ({
       type={type}
       placeholder={placeholder}
       aria-label={ariaLabel}
+      aria-invalid={hasError || undefined}
+      aria-describedby={describedBy}
       value={value}
       onChange={onChange}
       required={required}
+      $hasError={hasError}
     />
   );
 };

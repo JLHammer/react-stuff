@@ -10,4 +10,5 @@ export type FormFieldProps = {
   placeholder?: string;
   required?: boolean;
   rows?: number;
+  error?: string;
 };

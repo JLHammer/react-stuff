@@ -3,3 +3,7 @@ export type ContactFormValues = {
   email: string;
   message: string;
 };
+
+export type ContactFormErrors = Partial<
+  Record<keyof ContactFormValues, string>
+>;
