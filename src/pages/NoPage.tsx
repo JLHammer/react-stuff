@@ -1,5 +1,5 @@
+import { NavLink } from "react-router-dom";
 import { ContentWrapper } from "../components/content/ContentWrapper/ContentWrapper";
-import { NavigationLink } from "../components/content/NavigationLink/NavigationLink";
 
 export const NoPage = () => {
   return (
@@ -14,7 +14,9 @@ export const NoPage = () => {
         eller også er der sneget sig en stavefejl ind i adressen.
       </p>
       <p>
-        <NavigationLink to="/">Gå tilbage til forsiden</NavigationLink>
+        <NavLink to="/" end>
+          Gå tilbage til forsiden
+        </NavLink>
       </p>
     </ContentWrapper>
   );
