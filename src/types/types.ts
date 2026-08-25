@@ -72,3 +72,12 @@ export type GoalData = {
 export type GoalCardProps = Pick<GoalData, "id" | "title" | "color" | "icon">;
 
 export type GoalIconProps = Pick<GoalData, "icon">;
+
+export type GoalDetailProps = {
+  goal: GoalData;
+};
+
+export type GoalNavigationProps = {
+  previousGoal: GoalData | null;
+  nextGoal: GoalData | null;
+};
