@@ -23,11 +23,6 @@ export type FooterProps = {
   children: React.ReactNode;
 };
 
-export type ContainerProps = {
-  $padding?: string;
-  children?: React.ReactNode;
-};
-
 export type ContentWrapperProps = {
   title: string;
   description: string;

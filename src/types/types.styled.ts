@@ -3,10 +3,6 @@ export type NavbarStyledProps = {
   $display?: string;
 };
 
-export type ContainerStyledProps = {
-  $padding?: string;
-};
-
 export type UnorderedListStyledProps = {
   $display?: string;
   $gap?: string;
