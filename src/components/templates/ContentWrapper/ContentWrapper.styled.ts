@@ -1,23 +1,28 @@
 import styled from "styled-components";
-import { contentWidth, flexColumn } from "../../../styled/Mixins.styled";
+import { contentWidth, headingOswald } from "../../../styles/mixins";
 
 export const ContentWrapperStyled = styled.div`
   width: 100%;
 `;
 
+// Figma "Main Header": a 100px band in #ededed holding the page title.
 export const ContentWrapperTitleBar = styled.div`
-  background-color: ${({ theme }) => theme.colors.secondary};
-  padding: ${({ theme }) => theme.spacing.m};
+  display: flex;
+  align-items: center;
+  min-height: ${({ theme }) => theme.sizes.bannerHeight};
+  background-color: ${({ theme }) => theme.colors.bannerBackground};
 `;
 
 export const ContentWrapperTitle = styled.h1`
   ${contentWidth}
-  font-size: ${({ theme }) => theme.fontSizes.xl};
-  text-transform: uppercase;
+  ${headingOswald}
 `;
 
 export const ContentWrapperContent = styled.div`
   ${contentWidth}
-  ${flexColumn("s")}
-  padding: ${({ theme }) => theme.spacing.m};
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.m};
+  padding-top: ${({ theme }) => theme.spacing.m};
+  padding-bottom: ${({ theme }) => theme.spacing.xl};
 `;

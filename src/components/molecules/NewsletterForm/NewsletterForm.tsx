@@ -1,9 +1,10 @@
 import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
+import { Input } from "../../atoms/Input/Input";
+import { Button } from "../../atoms/Button/Button";
 import {
   NewsletterFormStyled,
-  NewsletterInput,
-  NewsletterButton,
+  NewsletterField,
   NewsletterStatus,
 } from "./NewsletterForm.styled";
 
@@ -11,7 +12,9 @@ export const NewsletterForm = () => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("");
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setEmail(event.target.value);
   };
 
@@ -25,17 +28,19 @@ export const NewsletterForm = () => {
   return (
     <>
       <NewsletterFormStyled onSubmit={handleSubmit}>
-        <NewsletterInput
-          id="newsletter-email"
-          name="email"
-          type="email"
-          placeholder="Indtast din email"
-          aria-label="Indtast din email"
-          value={email}
-          onChange={handleChange}
-          required
-        />
-        <NewsletterButton type="submit">Tilmeld</NewsletterButton>
+        <NewsletterField>
+          <Input
+            id="newsletter-email"
+            name="email"
+            type="email"
+            placeholder="Indtast din email"
+            ariaLabel="Indtast din email"
+            value={email}
+            onChange={handleChange}
+            required
+          />
+        </NewsletterField>
+        <Button type="submit" label="Tilmeld" />
       </NewsletterFormStyled>
 
       {status && <NewsletterStatus>{status}</NewsletterStatus>}

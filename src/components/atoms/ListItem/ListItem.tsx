@@ -1,4 +1,4 @@
-import type { ListItemProps } from "../../../types/types";
+import type { ListItemProps } from "./ListItem.types";
 
 export const ListItem = ({ children }: ListItemProps) => {
   return <li>{children}</li>;

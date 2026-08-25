@@ -1,8 +1,10 @@
 import styled from "styled-components";
-import { labelText } from "../../../styled/Mixins.styled";
 
+// Figma renders the countdown in the footer's bold 16px style, uppercase.
 export const CountdownStyled = styled.p`
-  ${labelText}
+  font-size: ${({ theme }) => theme.fontSizes.s};
+  font-weight: 700;
+  text-transform: uppercase;
 `;
 
 export const CountdownValue = styled.span`

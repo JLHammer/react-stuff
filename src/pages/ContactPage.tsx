@@ -1,4 +1,5 @@
 import { ContentWrapper } from "../components/templates/ContentWrapper/ContentWrapper";
+import { Article } from "../components/molecules/Article/Article";
 import { ContactForm } from "../components/organisms/ContactForm/ContactForm";
 
 export const ContactPage = () => {
@@ -6,12 +7,13 @@ export const ContactPage = () => {
     <ContentWrapper
       title="Kontakt os"
       description="Udfyld og send formularen og vi vil hurtigst muligt besvare dine spørgsmål."
-      showTitle={true}
     >
-      <p>
-        Udfyld og send formularen og vi vil hurtigst muligt besvare dine
-        spørgsmål.
-      </p>
+      <Article
+        paragraphs={[
+          "Udfyld og send formularen og vi vil hurtigst muligt besvare dine spørgsmål.",
+        ]}
+      />
+
       <ContactForm />
     </ContentWrapper>
   );

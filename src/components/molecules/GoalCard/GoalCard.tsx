@@ -1,7 +1,8 @@
-import type { GoalCardProps } from "../../../types/types";
+import type { GoalCardProps } from "./GoalCard.types";
 import { GoalIcon } from "../../atoms/GoalIcon/GoalIcon";
 import {
   GoalCardStyled,
+  GoalCardHeading,
   GoalCardNumber,
   GoalCardTitle,
   GoalCardIcon,
@@ -10,10 +11,10 @@ import {
 export const GoalCard = ({ id, title, color, icon }: GoalCardProps) => {
   return (
     <GoalCardStyled to={`/maal/${id}`} $color={color}>
-      <div>
+      <GoalCardHeading>
         <GoalCardNumber>{id}</GoalCardNumber>
         <GoalCardTitle>{title}</GoalCardTitle>
-      </div>
+      </GoalCardHeading>
       <GoalCardIcon aria-hidden="true">
         <GoalIcon icon={icon} />
       </GoalCardIcon>

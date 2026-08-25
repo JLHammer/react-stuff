@@ -1,4 +1,4 @@
-import type { HeaderProps } from "../../../types/types";
+import type { HeaderProps } from "./Header.types";
 import { TopBar } from "../../atoms/TopBar/TopBar";
 import { HeaderRowStyled, HeaderStyled } from "./Header.styled";
 

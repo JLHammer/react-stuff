@@ -1,21 +1,20 @@
 import { ContentWrapper } from "../components/templates/ContentWrapper/ContentWrapper";
+import { Article } from "../components/molecules/Article/Article";
+import { GoalBuilder } from "../components/organisms/GoalBuilder/GoalBuilder";
 
 export const CustomGoalPage = () => {
   return (
     <ContentWrapper
       title="Byg dit eget mål"
-      description="Design dit eget verdensmål, og fortæl hvad du synes verden mangler."
-      showTitle={true}
+      description="Byg dit eget verdensmål med din egen måltekst og farvekode."
     >
-      <p>
-        De 17 verdensmål dækker meget, men måske mangler der noget, som er
-        vigtigt for netop dig. Her kan du give dit eget mål en titel, en farve og
-        et ikon.
-      </p>
-      <p>
-        Når du er færdig, kan du dele dit mål med din klasse og sammenligne det
-        med de officielle mål.
-      </p>
+      <Article
+        paragraphs={[
+          "Mangler der et mål? Med tekst feltet herunder kan du bygge dit eget mål og give det en bestemt farve.",
+        ]}
+      />
+
+      <GoalBuilder />
     </ContentWrapper>
   );
 };

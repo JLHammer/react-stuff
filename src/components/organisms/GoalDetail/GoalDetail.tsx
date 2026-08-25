@@ -1,9 +1,13 @@
 import parse from "html-react-parser";
-import type { GoalDetailProps } from "../../../types/types";
+import type { GoalDetailProps } from "./GoalDetail.types";
+import { Image } from "../../atoms/Image/Image";
+import { LikeButton } from "../../atoms/LikeButton/LikeButton";
 import {
   GoalDetailStyled,
   GoalDetailByline,
-  GoalDetailVideo,
+  GoalDetailMedia,
+  GoalDetailFigure,
+  GoalDetailText,
 } from "./GoalDetail.styled";
 
 const toParagraphs = (description: string) => description.split("\n\n");
@@ -13,18 +17,23 @@ export const GoalDetail = ({ goal }: GoalDetailProps) => {
     <GoalDetailStyled>
       <GoalDetailByline>{goal.byline}</GoalDetailByline>
 
-      <GoalDetailVideo>
-        <iframe
-          src={goal.video_url}
-          title={`Verdensmål ${goal.id}: ${goal.title}`}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        />
-      </GoalDetailVideo>
+      <GoalDetailMedia>
+        <GoalDetailFigure>
+          <Image
+            src={goal.imageUrl}
+            alt={`Mål ${goal.id}: ${goal.title}`}
+            width={872}
+            height={492}
+          />
+        </GoalDetailFigure>
+        <LikeButton label={`Synes godt om mål ${goal.id}: ${goal.title}`} />
+      </GoalDetailMedia>
 
-      {toParagraphs(goal.description).map((paragraph, index) => (
-        <p key={index}>{parse(paragraph)}</p>
-      ))}
+      <GoalDetailText>
+        {toParagraphs(goal.description).map((paragraph, index) => (
+          <p key={index}>{parse(paragraph)}</p>
+        ))}
+      </GoalDetailText>
     </GoalDetailStyled>
   );
 };

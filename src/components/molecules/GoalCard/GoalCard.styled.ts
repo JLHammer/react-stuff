@@ -1,15 +1,20 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { flexColumn, goalIcon } from "../../../styled/Mixins.styled";
-import type { GoalCardStyledProps } from "../../../types/types.styled";
+import { goalIcon } from "../../../styles/mixins";
+import type { GoalCardStyledProps } from "./GoalCard.types";
 
+// Figma places the official 200x200 tiles; we rebuild them from the goal data
+// so the number, title and pictogram stay in sync with the dataset.
 export const GoalCardStyled = styled(Link)<GoalCardStyledProps>`
-  ${flexColumn("s")}
-  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   aspect-ratio: 1 / 1;
-  padding: ${({ theme }) => theme.spacing.s};
-  background-color: #${({ $color }) => $color};
-  color: ${({ theme }) => theme.colors.light};
+  padding: ${({ theme }) => theme.spacing.xs};
+  background-color: ${({ $color }) => $color};
+  color: ${({ theme }) => theme.colors.white};
+  text-decoration: none;
+  transition: opacity 0.2s ease;
 
   &:hover,
   &:focus-visible {
@@ -17,23 +22,30 @@ export const GoalCardStyled = styled(Link)<GoalCardStyledProps>`
   }
 `;
 
+export const GoalCardHeading = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+`;
+
 export const GoalCardNumber = styled.span`
-  display: block;
-  font-size: ${({ theme }) => theme.fontSizes.xl};
-  font-weight: bold;
-  line-height: 1;
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 0.85;
 `;
 
 export const GoalCardTitle = styled.span`
-  display: block;
-  font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: 0.8125rem;
+  font-weight: 700;
   text-transform: uppercase;
-  line-height: 1.2;
-  overflow-wrap: break-word;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
 `;
 
 export const GoalCardIcon = styled.div`
   ${goalIcon}
-  align-self: flex-end;
-  width: 40%;
+  width: 62%;
+  margin: auto auto 0;
 `;

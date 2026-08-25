@@ -1,75 +1,63 @@
-# Komponentstruktur — Atomic Design
+# Komponentstruktur
 
-Komponenterne er opdelt efter Atomic Design. Princippet er, at et komponent
-placeres ét niveau over de komponenter, det selv er bygget af.
+Projektet følger Atomic Design. Hver komponent bor i sin egen mappe med
+`X.tsx`, `X.styled.ts` og `X.types.ts` — de to sidste kun når komponenten
+faktisk har styling eller props.
 
-## atoms/
+Designet i Figma-filen **FN's verdensmål – React Case** er facit. Alle farver,
+skriftstørrelser og mål i `src/styles/theme.ts` er hentet derfra.
 
-Mindste byggesten. Hvert atom rendrer ét enkelt HTML-element og kan ikke
-brydes yderligere ned.
+## atoms — mindste byggeklods, ingen afhængighed til andre komponenter
 
-| Komponent      | Element    |
-| -------------- | ---------- |
-| `AnchorLink`   | `<a>`      |
-| `ListItem`     | `<li>`     |
-| `LoginButton`  | `<button>` |
-| `UnorderedList`| `<ul>`     |
-| `TopBar`       | `<div>`    |
+| Komponent      | Render     | Noter                                          |
+| -------------- | ---------- | ---------------------------------------------- |
+| `AnchorLink`   | `<a>`      | Eksterne links                                 |
+| `Button`       | `<button>` | Figmas Lavender Blush-knap                     |
+| `GoalIcon`     | `<svg>`    | Parser ikon-SVG'en fra måldataen               |
+| `Image`        | `<img>`    |                                                |
+| `Input`        | `<input>`  | Bliver til `<textarea>`, når `rows` er sat     |
+| `Label`        | `<label>`  | Tilføjer den røde `*` ved påkrævede felter     |
+| `LikeButton`   | `<button>` | Skifter mellem de to hjerte-ikoner fra Figma   |
+| `ListItem`     | `<li>`     |                                                |
+| `TopBar`       | `<div>`    | Den 30px turkise stribe øverst                 |
+| `UnorderedList`| `<ul>`     |                                                |
 
-## molecules/
+## molecules — få atomer sat sammen til ét formål
 
-Få atomer sat sammen til én genkendelig enhed med ét formål.
+| Komponent        | Består af                                    |
+| ---------------- | -------------------------------------------- |
+| `Article`        | overskrift + manchet + afsnit                |
+| `Countdown`      | sekunder til 2030                            |
+| `FormField`      | `Label` + `Input` i Figmas "Inputgroup"      |
+| `GoalCard`       | ét verdensmål som 200×200-flise              |
+| `GoalPreview`    | 300×300-forhåndsvisning på "Byg dit eget mål"|
+| `Logo`           | `AnchorLink`/`Link` + `Image`                |
+| `NewsletterForm` | `Input` + `Button`                           |
+| `SubjectCard`    | ét fag som 400×219-kort                      |
 
-| Komponent        | Består af                              |
-| ---------------- | -------------------------------------- |
-| `Logo`           | `AnchorLink`/`Link` + `<img>`          |
-| `GoalCard`       | nummer + titel + ikon i én klikbar knap |
-| `Countdown`      | label + tællerværdi                    |
-| `NewsletterForm` | inputfelt + knap                       |
+## organisms — selvstændige sektioner af en side
 
-## organisms/
+| Komponent     | Består af                                       |
+| ------------- | ----------------------------------------------- |
+| `ContactForm` | tre `FormField` + `Button`                      |
+| `Footer`      | `Logo`, `NewsletterForm` og `Countdown`         |
+| `GoalBuilder` | to `FormField` + `GoalPreview`                  |
+| `GoalDetail`  | manchet, foto og `LikeButton`                   |
+| `GoalList`    | de 17 `GoalCard` i et 6×3-grid                  |
+| `Header`      | `TopBar` + `Logo` + `Navbar`                    |
+| `LoginForm`   | to `FormField` + `Button`                       |
+| `Navbar`      | `UnorderedList` af `NavbarLink`                 |
+| `SubjectList` | de ni `SubjectCard` i et 3×3-grid               |
 
-Selvstændige sektioner af siden, sat sammen af molekyler og atomer.
+## templates — rammen om indholdet
 
-| Komponent      | Består af                                |
-| -------------- | ---------------------------------------- |
-| `Header`       | `TopBar` + indhold via `children`        |
-| `Navbar`       | `UnorderedList` + `ListItem` + `NavLink` |
-| `Footer`       | `Logo` + `NewsletterForm` + `Countdown`  |
-| `GoalOverview` | de 17 `GoalCard`-komponenter i et grid   |
-| `GoalDetail`   | overskrift + video + brødtekst           |
-| `ContactForm`  | flere inputfelter + knap + validering    |
+`Main` er sidens `<main>`. `ContentWrapper` er Figmas "Main Header" — den grå
+bjælke med sidetitlen — plus indholdskolonnen på 1262px.
 
-## templates/
+## Hvorfor ligger tingene, hvor de gør?
 
-Layout-rammer uden eget indhold. De bestemmer, hvor indholdet placeres, og
-modtager det via `props.children`.
-
-| Komponent        | Rolle                                  |
-| ---------------- | -------------------------------------- |
-| `ContentWrapper` | titelbjælke + indholdsområde, sætter sidens `document.title` |
-| `Main`           | `<main>`-området, hvor routeren skifter sider ud |
-
-## pages/ — ligger uden for `components/`
-
-Atomic Design har `pages` som femte niveau, men i dette projekt ligger de i
-`src/pages/` i stedet for `src/components/pages/`. Det er bevidst:
-
-- Alt i `components/` er genanvendelige byggeklodser. Et page component er
-  ikke genanvendeligt — det bruges præcis ét sted, nemlig som `element` på
-  én route i `src/router/AppRouter.tsx`.
-- `src/pages/` er den udbredte konvention i React-projekter, og den gør det
-  umiddelbart tydeligt, hvilke sider projektet består af.
-
-Hvert page component fylder en template (`ContentWrapper`) med konkret
-indhold og svarer til én route.
-
-## Placeringer der kræver en forklaring
-
-- **`Logo` er et molekyle, ikke et atom.** Den er bygget af atomet
-  `AnchorLink` og et `<img>`, og et komponent, der bruger et andet komponent,
-  kan ikke være et atom.
-- **`Header` og `Footer` er organismer, ikke templates.** De indeholder
-  reelt indhold — logoer, navigation, nyhedsbrev — og ikke kun layout.
-  `Main` er derimod en tom ramme og hører i templates.
-- **`TopBar` er et atom.** Den rendrer kun en dekorativ `<div>` uden indhold.
+- `Logo` er en molekyle, fordi den sætter et link og et billede sammen.
+- `Header` og `Footer` er organismer, fordi de samler flere molekyler.
+- `TopBar` er et atom: den er bare en farvet stribe uden indhold.
+- `pages/` ligger uden for `components/`, fordi en side ikke genbruges — den
+  svarer én til én til en rute i `router/AppRouter.tsx`.

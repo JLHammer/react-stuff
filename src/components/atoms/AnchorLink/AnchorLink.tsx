@@ -1,4 +1,4 @@
-import type { AnchorLinkProps } from "../../../types/types";
+import type { AnchorLinkProps } from "./AnchorLink.types";
 
 export const AnchorLink = ({ href, children, newTab }: AnchorLinkProps) => {
   return (

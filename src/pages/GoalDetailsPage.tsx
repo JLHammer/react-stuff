@@ -1,46 +1,45 @@
 import { useParams, Link } from "react-router-dom";
-import { goals } from "../data/sdg";
+import { goals } from "../data/goals";
 import { ContentWrapper } from "../components/templates/ContentWrapper/ContentWrapper";
+import { Article } from "../components/molecules/Article/Article";
 import { GoalDetail } from "../components/organisms/GoalDetail/GoalDetail";
-import { GoalNavigation } from "../components/molecules/GoalNavigation/GoalNavigation";
-import { GoalOverview } from "../components/organisms/GoalOverview/GoalOverview";
+import { GoalList } from "../components/organisms/GoalList/GoalList";
 
 export const GoalDetailsPage = () => {
   const { id } = useParams();
 
-  const goalIndex = goals.findIndex((goal) => goal.id === id);
-  const goal = goals[goalIndex];
+  const goal = goals.find((item) => item.id === id);
 
   if (!goal) {
     return (
-      <ContentWrapper
-        title="Målet findes ikke"
-        description="Verdensmålet, du prøvede at åbne, findes ikke."
-        showTitle={true}
-      >
-        <h2>Vi kunne ikke finde verdensmål {id}</h2>
-        <p>
-          Der findes 17 verdensmål, og adressen peger på et mål uden for den
-          række. Vælg et af målene herunder, eller{" "}
-          <Link to="/">gå tilbage til forsiden</Link>.
-        </p>
-        <GoalOverview />
-      </ContentWrapper>
+      <>
+        <ContentWrapper
+          title="Målet findes ikke"
+          description="Verdensmålet, du prøvede at åbne, findes ikke."
+        >
+          <Article title={`Vi kunne ikke finde verdensmål ${id}`} />
+          <p>
+            Der findes 17 verdensmål, og adressen peger på et mål uden for den
+            række. Vælg et af målene herunder, eller{" "}
+            <Link to="/">gå tilbage til forsiden</Link>.
+          </p>
+        </ContentWrapper>
+
+        <GoalList />
+      </>
     );
   }
 
-  const previousGoal = goals[goalIndex - 1] ?? null;
-  const nextGoal = goals[goalIndex + 1] ?? null;
-
   return (
-    <ContentWrapper
-      title={`Mål ${goal.id}: ${goal.title}`}
-      description={goal.byline}
-      showTitle={true}
-    >
-      <GoalDetail goal={goal} />
-      <GoalNavigation previousGoal={previousGoal} nextGoal={nextGoal} />
-      <GoalOverview />
-    </ContentWrapper>
+    <>
+      <ContentWrapper
+        title={`Mål ${goal.id}: ${goal.title}`}
+        description={goal.byline}
+      >
+        <GoalDetail goal={goal} />
+      </ContentWrapper>
+
+      <GoalList />
+    </>
   );
 };

@@ -1,12 +1,11 @@
 import { BrowserRouter } from "react-router-dom";
 import { Header } from "./components/organisms/Header/Header";
-import { Main } from "./components/templates/Main/Main";
-import { Footer } from "./components/organisms/Footer/Footer";
 import { Navbar } from "./components/organisms/Navbar/Navbar";
 import { NavbarLink } from "./components/organisms/Navbar/NavbarLink";
+import { Footer } from "./components/organisms/Footer/Footer";
+import { Main } from "./components/templates/Main/Main";
 import { UnorderedList } from "./components/atoms/UnorderedList/UnorderedList";
 import { ListItem } from "./components/atoms/ListItem/ListItem";
-import { LoginButton } from "./components/atoms/LoginButton/LoginButton";
 import { Logo } from "./components/molecules/Logo/Logo";
 import { AppRouter } from "./router/AppRouter";
 import logo from "./assets/Logo.svg";
@@ -15,7 +14,11 @@ function App() {
   return (
     <BrowserRouter>
       <Header>
-        <Logo src={logo} alt="Verdensmålene" href="/" />
+        <Logo
+          src={logo}
+          alt="FN's Verdensmål for bæredygtig udvikling"
+          href="/"
+        />
         <Navbar>
           <UnorderedList>
             <ListItem>
@@ -34,7 +37,7 @@ function App() {
               <NavbarLink to="/kontakt">Kontakt os</NavbarLink>
             </ListItem>
             <ListItem>
-              <LoginButton textValue="Login" />
+              <NavbarLink to="/login">Login</NavbarLink>
             </ListItem>
           </UnorderedList>
         </Navbar>

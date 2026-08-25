@@ -1,10 +1,11 @@
 import styled from "styled-components";
-import { contentWidth, flexColumn, media } from "../../../styled/Mixins.styled";
+import { contentWidth, media } from "../../../styles/mixins";
 
+// Figma header: 1440x165 - a 30px topbar plus a 135px row.
 export const HeaderStyled = styled.header`
-  ${flexColumn()}
-  background-color: ${({ theme }) => theme.colors.light};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.secondary};
+  display: flex;
+  flex-direction: column;
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const HeaderRowStyled = styled.div`
@@ -13,7 +14,7 @@ export const HeaderRowStyled = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: ${({ theme }) => theme.spacing.m};
-  padding: ${({ theme }) => `${theme.spacing.s} ${theme.spacing.m}`};
+  min-height: 135px;
 
   img {
     display: block;
@@ -21,8 +22,11 @@ export const HeaderRowStyled = styled.div`
     width: auto;
   }
 
-  ${media("tablet")} {
+  ${media("desktop")} {
     flex-direction: column;
+    justify-content: center;
     gap: ${({ theme }) => theme.spacing.s};
+    padding-top: ${({ theme }) => theme.spacing.s};
+    padding-bottom: ${({ theme }) => theme.spacing.s};
   }
 `;

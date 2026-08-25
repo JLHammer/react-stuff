@@ -1,4 +1,4 @@
-import type { MainProps } from "../../../types/types";
+import type { MainProps } from "./Main.types";
 import { MainStyled } from "./Main.styled";
 
 export const Main = ({ children }: MainProps) => {

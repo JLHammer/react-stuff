@@ -1,22 +1,20 @@
 import { ContentWrapper } from "../components/templates/ContentWrapper/ContentWrapper";
+import { Article } from "../components/molecules/Article/Article";
+import { SubjectList } from "../components/organisms/SubjectList/SubjectList";
 
 export const EducationPage = () => {
   return (
     <ContentWrapper
       title="Undervisning"
-      description="Undervisningsmateriale om verdensmålene til grundskolen og ungdomsuddannelserne."
-      showTitle={true}
+      description="Inspiration til undervisning i verdensmålene, fag for fag."
     >
-      <p>
-        Her finder du forløb, opgaver og videoer, som kan bruges direkte i
-        undervisningen. Materialet er udviklet sammen med Globale Gymnasier og
-        Mellemfolkeligt Samvirke.
-      </p>
-      <p>
-        Hvert forløb tager udgangspunkt i et enkelt verdensmål og lægger op til,
-        at eleverne selv undersøger, hvordan målet hænger sammen med deres egen
-        hverdag.
-      </p>
+      <Article
+        paragraphs={[
+          "Her finder du inspiration til din undervisning i form af introducerende øvelser, der kan bruges til at sætte verdensmålene i spil sammen med dine elever. Øvelserne er udarbejdet på baggrund af bogen “Bliver verden bedre” og kernestof i fagene.",
+        ]}
+      />
+
+      <SubjectList />
     </ContentWrapper>
   );
 };

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import type { ContentWrapperProps } from "../../../types/types";
+import type { ContentWrapperProps } from "./ContentWrapper.types";
 import {
   ContentWrapperStyled,
   ContentWrapperTitleBar,
@@ -10,7 +10,6 @@ import {
 export const ContentWrapper = ({
   title,
   description,
-  showTitle = true,
   children,
 }: ContentWrapperProps) => {
   useEffect(() => {
@@ -22,11 +21,9 @@ export const ContentWrapper = ({
 
   return (
     <ContentWrapperStyled>
-      {showTitle && (
-        <ContentWrapperTitleBar>
-          <ContentWrapperTitle>{title}</ContentWrapperTitle>
-        </ContentWrapperTitleBar>
-      )}
+      <ContentWrapperTitleBar>
+        <ContentWrapperTitle>{title}</ContentWrapperTitle>
+      </ContentWrapperTitleBar>
       <ContentWrapperContent>{children}</ContentWrapperContent>
     </ContentWrapperStyled>
   );

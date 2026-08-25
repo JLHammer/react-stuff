@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { CountdownProps } from "../../../types/types";
+import type { CountdownProps } from "./Countdown.types";
 import { CountdownStyled, CountdownValue } from "./Countdown.styled";
 
 const secondsUntil = (targetDate: string) => {

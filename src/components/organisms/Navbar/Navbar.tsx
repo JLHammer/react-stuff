@@ -1,10 +1,6 @@
-import type { NavbarProps } from "../../../types/types";
+import type { NavbarProps } from "./Navbar.types";
 import { NavbarStyled } from "./Navbar.styled";
 
-export const Navbar = ({ $color, $display, children }: NavbarProps) => {
-  return (
-    <NavbarStyled $color={$color} $display={$display}>
-      {children}
-    </NavbarStyled>
-  );
+export const Navbar = ({ children }: NavbarProps) => {
+  return <NavbarStyled>{children}</NavbarStyled>;
 };

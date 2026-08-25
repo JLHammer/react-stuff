@@ -1,45 +1,38 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { labelText } from "../../../styled/Mixins.styled";
-import type { NavbarStyledProps } from "../../../types/types.styled";
+import { media } from "../../../styles/mixins";
 
-export const NavbarStyled = styled.nav<NavbarStyledProps>`
-  display: ${({ $display }) => $display || "flex"};
+export const NavbarStyled = styled.nav`
+  display: flex;
   align-items: center;
-  color: ${({ $color, theme }) => $color || theme.colors.dark};
-  font-family: ${({ theme }) => theme.fonts.secondary};
+
+  /* Figma spaces the nav items 35px apart. */
+  ul {
+    gap: 35px;
+  }
+
+  ${media("tablet")} {
+    ul {
+      justify-content: center;
+      gap: ${({ theme }) => theme.spacing.s};
+    }
+  }
 `;
 
+// Figma nav link: Oswald Bold 20, uppercase, black - accent on the current page.
 export const NavbarLinkStyled = styled(NavLink)`
-  ${labelText}
-  position: relative;
-  display: inline-block;
-  padding-bottom: 0.25rem;
-  color: inherit;
+  font-family: ${({ theme }) => theme.fonts.heading};
+  font-size: ${({ theme }) => theme.fontSizes.m};
+  font-weight: 700;
+  text-transform: uppercase;
+  color: ${({ theme }) => theme.colors.text};
+  text-decoration: none;
   white-space: nowrap;
   transition: color 0.2s ease;
 
-  &::after {
-    content: "";
-    position: absolute;
-    inset: auto 0 0 0;
-    height: 2px;
-    background-color: currentColor;
-    transform: scaleX(0);
-    transition: transform 0.2s ease;
-  }
-
   &:hover,
-  &:focus-visible {
-    color: ${({ theme }) => theme.colors.blueDark};
-  }
-
-  &:hover::after,
-  &:focus-visible::after {
-    transform: scaleX(1);
-  }
-
+  &:focus-visible,
   &.active {
-    color: ${({ theme }) => theme.colors.attention};
+    color: ${({ theme }) => theme.colors.accent};
   }
 `;

@@ -1,54 +1,63 @@
 import styled from "styled-components";
-import {
-  contentWidth,
-  flexColumn,
-  flexRowCenter,
-  labelText,
-  media,
-} from "../../../styled/Mixins.styled";
+import { contentWidth, media } from "../../../styles/mixins";
 import footerBackground from "../../../assets/images/footer-background.svg";
 
+// Figma footer: 1440x600, world-map photo on deep blue, all copy in white.
 export const FooterStyled = styled.footer`
-  background-color: ${({ theme }) => theme.colors.blueDark};
+  background-color: ${({ theme }) => theme.colors.footerBackground};
   background-image: url(${footerBackground});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  color: ${({ theme }) => theme.colors.light};
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 export const FooterContent = styled.div`
   ${contentWidth}
-  padding: ${({ theme }) => `${theme.spacing.l} ${theme.spacing.m}`};
+  padding-top: ${({ theme }) => theme.spacing.xl};
+  padding-bottom: ${({ theme }) => theme.spacing.xl};
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: ${({ theme }) => theme.spacing.l};
+  gap: ${({ theme }) => theme.spacing.xl};
 
   ${media("tablet")} {
     grid-template-columns: minmax(0, 1fr);
     gap: ${({ theme }) => theme.spacing.m};
-    padding: ${({ theme }) => theme.spacing.m};
+    padding-top: ${({ theme }) => theme.spacing.m};
+    padding-bottom: ${({ theme }) => theme.spacing.m};
   }
 `;
 
 export const FooterColumn = styled.div`
-  ${flexColumn("m")}
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.m};
 `;
 
 export const FooterSection = styled.section`
-  ${flexColumn("s")}
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.s};
 `;
 
+// Figma footer headings: Open Sans Bold 16, uppercase.
 export const FooterTitle = styled.h2`
-  ${labelText}
+  font-size: ${({ theme }) => theme.fontSizes.s};
+  font-weight: 700;
+  text-transform: uppercase;
 `;
 
+// Figma footer body: Open Sans Light 16.
 export const FooterText = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.s};
+  font-weight: 300;
 `;
 
 export const FooterLogoRow = styled.div`
-  ${flexRowCenter("m")}
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: ${({ theme }) => theme.spacing.m};
 
   img {
     display: block;

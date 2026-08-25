@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import type { LogoProps } from "../../../types/types";
+import type { LogoProps } from "./Logo.types";
 import { AnchorLink } from "../../atoms/AnchorLink/AnchorLink";
 
 export const Logo = ({ src, alt, href, newTab }: LogoProps) => {
