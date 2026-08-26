@@ -60,12 +60,18 @@ export const statusText = css`
 `;
 
 export const buttonSurface = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 4px 20px;
+  border: none;
   border-radius: ${({ theme }) => theme.radii.s};
   background-color: ${({ theme }) => theme.colors.buttonBackground};
   box-shadow: ${({ theme }) => theme.shadows.button};
   font-family: ${({ theme }) => theme.fonts.body};
   font-size: ${({ theme }) => theme.fontSizes.xs};
+  font-weight: 400;
+  line-height: normal;
   color: ${({ theme }) => theme.colors.text};
   white-space: nowrap;
   cursor: pointer;
