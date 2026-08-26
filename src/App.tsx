@@ -1,4 +1,5 @@
 import { BrowserRouter } from "react-router-dom";
+import { SkipLink } from "./components/atoms/SkipLink/SkipLink";
 import { Header } from "./components/organisms/Header/Header";
 import { Navbar } from "./components/organisms/Navbar/Navbar";
 import { NavbarLink } from "./components/atoms/NavbarLink/NavbarLink";
@@ -13,6 +14,8 @@ import logo from "./assets/Logo.svg";
 function App() {
   return (
     <BrowserRouter>
+      <SkipLink href="#indhold">Spring til indhold</SkipLink>
+
       <Header>
         <Logo
           src={logo}
@@ -42,7 +45,7 @@ function App() {
           </UnorderedList>
         </Navbar>
       </Header>
-      <Main>
+      <Main id="indhold">
         <AppRouter />
       </Main>
       <Footer />

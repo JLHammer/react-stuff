@@ -21,6 +21,10 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.text};
   }
 
+  main:focus {
+    outline: none;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
   }
