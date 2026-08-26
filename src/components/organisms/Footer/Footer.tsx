@@ -1,3 +1,4 @@
+import { useId } from "react";
 import { Logo } from "../../molecules/Logo/Logo";
 import { NewsletterForm } from "../../molecules/NewsletterForm/NewsletterForm";
 import { Countdown } from "../../molecules/Countdown/Countdown";
@@ -17,12 +18,17 @@ import globaleGymnasierLogo from "../../../assets/images/globale-gymnasier-logo.
 import danidaLogo from "../../../assets/images/danida-logo.svg";
 
 export const Footer = () => {
+  const aboutId = useId();
+  const newsletterId = useId();
+  const partnersId = useId();
+  const supportId = useId();
+
   return (
     <FooterStyled>
       <FooterContent>
         <FooterColumn>
-          <FooterSection>
-            <FooterTitle>Om hjemmesiden</FooterTitle>
+          <FooterSection aria-labelledby={aboutId}>
+            <FooterTitle id={aboutId}>Om hjemmesiden</FooterTitle>
             <FooterText>
               Dette digitale læringssite er udviklet af UNDP's nordiske kontor i
               Danmark, Globale Gymnasier og Mellemfolkeligt
@@ -37,8 +43,8 @@ export const Footer = () => {
             </FooterText>
           </FooterSection>
 
-          <FooterSection>
-            <FooterTitle>Tilmeld nyhedsbrev</FooterTitle>
+          <FooterSection aria-labelledby={newsletterId}>
+            <FooterTitle id={newsletterId}>Tilmeld nyhedsbrev</FooterTitle>
             <FooterText>
               Tilmeld dig vores nyhedsbrev og få sidste nyt tilsendt direkte til
               din indbakke.
@@ -53,8 +59,8 @@ export const Footer = () => {
         </FooterColumn>
 
         <FooterColumn>
-          <FooterSection>
-            <FooterTitle>Organisationerne bag</FooterTitle>
+          <FooterSection aria-labelledby={partnersId}>
+            <FooterTitle id={partnersId}>Organisationerne bag</FooterTitle>
             <FooterPartnerRow>
               <Logo
                 src={undpLogo}
@@ -79,8 +85,8 @@ export const Footer = () => {
             </FooterLogoRow>
           </FooterSection>
 
-          <FooterSection>
-            <FooterTitle>
+          <FooterSection aria-labelledby={supportId}>
+            <FooterTitle id={supportId}>
               Udviklet med støtte fra Danidas Oplysningsbevilling
             </FooterTitle>
             <FooterLogoRow>
