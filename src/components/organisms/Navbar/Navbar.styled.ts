@@ -34,6 +34,10 @@ export const NavbarPanel = styled.div<NavbarPanelProps>`
 
   ${media("desktop")} {
     display: ${({ $isOpen }) => ($isOpen ? "block" : "none")};
+    opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
+    transition:
+      opacity 0.2s ease,
+      display 0.2s allow-discrete;
     width: 100%;
     border-top: 1px solid ${({ theme }) => theme.colors.border};
 
@@ -45,6 +49,10 @@ export const NavbarPanel = styled.div<NavbarPanelProps>`
 
     ${UnorderedListStyled} > li {
       border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+    }
+
+    @starting-style {
+      opacity: 0;
     }
   }
 `;
