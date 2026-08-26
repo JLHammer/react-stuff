@@ -17,6 +17,17 @@ export const NewsletterAction = styled.div`
   display: flex;
   align-items: center;
   min-height: ${({ theme }) => theme.sizes.inputHeight};
+
+  button {
+    background-color: ${({ theme }) => theme.colors.white};
+    transition: background-color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      background-color: transparent;
+      filter: none;
+    }
+  }
 `;
 
 export const NewsletterError = styled.p`
