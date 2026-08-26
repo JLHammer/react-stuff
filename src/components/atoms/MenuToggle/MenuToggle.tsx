@@ -2,6 +2,7 @@ import type { MenuToggleProps } from "./MenuToggle.types";
 import { MenuToggleStyled, MenuToggleBars } from "./MenuToggle.styled";
 
 export const MenuToggle = ({
+  ref,
   isOpen,
   controls,
   onClick,
@@ -9,6 +10,7 @@ export const MenuToggle = ({
 }: MenuToggleProps) => {
   return (
     <MenuToggleStyled
+      ref={ref}
       type="button"
       onClick={onClick}
       aria-expanded={isOpen}
