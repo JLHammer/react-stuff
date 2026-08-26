@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 import type { ContentWrapperProps } from "./ContentWrapper.types";
 import { GoalIcon } from "../../atoms/GoalIcon/GoalIcon";
 import {
@@ -17,14 +18,18 @@ export const ContentWrapper = ({
   children,
 }: ContentWrapperProps) => {
   const titleRef = useRef<HTMLHeadingElement>(null);
+  const { key } = useLocation();
 
   useEffect(() => {
     document.title = title;
     document
       .querySelector("meta[name='description']")
       ?.setAttribute("content", description);
-    titleRef.current?.focus();
-  }, [title, description]);
+
+    if (key !== "default") {
+      titleRef.current?.focus();
+    }
+  }, [title, description, key]);
 
   return (
     <>
