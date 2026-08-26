@@ -1,3 +1,4 @@
+import { useState } from "react";
 import parse from "html-react-parser";
 import type { GoalDetailProps } from "./GoalDetail.types";
 import { LikeButton } from "../../atoms/LikeButton/LikeButton";
@@ -15,6 +16,8 @@ const toMutedEmbed = (url: string) =>
   `${url}${url.includes("?") ? "&" : "?"}mute=1`;
 
 export const GoalDetail = ({ goal }: GoalDetailProps) => {
+  const [isLiked, setIsLiked] = useState(false);
+
   return (
     <GoalDetailStyled aria-label={`Mål ${goal.id}: ${goal.title}`}>
       <GoalDetailByline>{goal.byline}</GoalDetailByline>
@@ -30,7 +33,11 @@ export const GoalDetail = ({ goal }: GoalDetailProps) => {
             />
           </GoalDetailVideo>
         )}
-        <LikeButton goalName={`mål ${goal.id}: ${goal.title}`} />
+        <LikeButton
+          isLiked={isLiked}
+          goalName={`mål ${goal.id}: ${goal.title}`}
+          onClick={() => setIsLiked(!isLiked)}
+        />
       </GoalDetailMedia>
 
       <GoalDetailText>

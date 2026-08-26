@@ -1,24 +1,19 @@
-import { useState } from "react";
 import type { LikeButtonProps } from "./LikeButton.types";
-import { LikeButtonStyled } from "./LikeButton.styled";
+import { LikeButtonStyled, LikeButtonContext } from "./LikeButton.styled";
 import likeOutline from "../../../assets/images/like-outline.svg";
 import likeFilled from "../../../assets/images/like-filled.svg";
 
-export const LikeButton = ({ goalName }: LikeButtonProps) => {
-  const [liked, setLiked] = useState(false);
-
-  const label = liked
-    ? `Fjern dit synes godt om ${goalName}`
-    : `Synes godt om ${goalName}`;
-
+export const LikeButton = ({ isLiked, goalName, onClick }: LikeButtonProps) => {
   return (
     <LikeButtonStyled
       type="button"
-      aria-pressed={liked}
-      aria-label={label}
-      onClick={() => setLiked(!liked)}
+      onClick={onClick}
+      aria-pressed={isLiked}
+      $isLiked={isLiked}
     >
-      <img src={liked ? likeFilled : likeOutline} alt="" />
+      <img src={isLiked ? likeFilled : likeOutline} alt="" />
+      {isLiked ? "Liked" : "Like"}
+      <LikeButtonContext> {goalName}</LikeButtonContext>
     </LikeButtonStyled>
   );
 };
