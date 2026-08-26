@@ -1,3 +1,3 @@
 export type LikeButtonProps = {
-  label: string;
+  goalName: string;
 };

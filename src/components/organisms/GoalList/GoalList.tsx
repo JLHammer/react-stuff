@@ -1,3 +1,4 @@
+import { useId } from "react";
 import { goals } from "../../../data/goals";
 import { GoalCard } from "../../molecules/GoalCard/GoalCard";
 import {
@@ -12,10 +13,12 @@ import {
 import verdensmaal from "../../../assets/images/verdensmaal.svg";
 
 export const GoalList = () => {
+  const titleId = useId();
+
   return (
-    <GoalListStyled>
+    <GoalListStyled aria-labelledby={titleId}>
       <GoalListInner>
-        <GoalListTitle>
+        <GoalListTitle id={titleId}>
           FN's 17 verdensmål for bæredygtig udvikling
         </GoalListTitle>
         <GoalListDivider aria-hidden="true" />
@@ -33,10 +36,9 @@ export const GoalList = () => {
                 icon={goal.icon}
               />
             ))}
-            <GoalListLogo
-              src={verdensmaal}
-              alt="Verdensmålene for bæredygtig udvikling"
-            />
+            <li aria-hidden="true">
+              <GoalListLogo src={verdensmaal} alt="" />
+            </li>
           </GoalGrid>
         )}
       </GoalListInner>

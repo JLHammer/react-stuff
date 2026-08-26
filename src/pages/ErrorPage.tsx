@@ -13,10 +13,11 @@ export const ErrorPage = () => {
         paragraphs={[
           "Adressen, du prøvede at åbne, findes ikke. Måske er linket forældet, eller også er der sneget sig en stavefejl ind i adressen.",
         ]}
-      />
-      <p>
-        <Link to="/">Gå tilbage til forsiden</Link>
-      </p>
+      >
+        <p>
+          <Link to="/">Gå tilbage til forsiden</Link>
+        </p>
+      </Article>
     </ContentWrapper>
   );
 };

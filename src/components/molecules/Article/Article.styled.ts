@@ -11,11 +11,6 @@ export const ArticleTitle = styled.h2`
   font-weight: 600;
 `;
 
-export const ArticleSubtitle = styled.h3`
-  font-size: ${({ theme }) => theme.fontSizes.m};
-  font-weight: 600;
-`;
-
 export const ArticleLead = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.m};
   font-weight: 600;

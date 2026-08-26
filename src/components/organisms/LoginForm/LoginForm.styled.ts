@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import { formActions, formColumn, statusText } from "../../../styles/mixins";
 
-export const ContactFormStyled = styled.form`
+export const LoginFormStyled = styled.form`
   ${formColumn}
 `;
 
-export const ContactFormActions = styled.div`
+export const LoginFormActions = styled.div`
   ${formActions}
 `;
 
-export const ContactFormStatus = styled.p`
+export const LoginFormStatus = styled.p`
   ${statusText}
 `;

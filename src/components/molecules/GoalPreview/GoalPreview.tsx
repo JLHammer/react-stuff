@@ -3,7 +3,7 @@ import { GoalPreviewStyled, GoalPreviewText } from "./GoalPreview.styled";
 
 export const GoalPreview = ({ text, color }: GoalPreviewProps) => {
   return (
-    <GoalPreviewStyled $color={color} aria-live="polite">
+    <GoalPreviewStyled $color={color}>
       <GoalPreviewText>{text}</GoalPreviewText>
     </GoalPreviewStyled>
   );

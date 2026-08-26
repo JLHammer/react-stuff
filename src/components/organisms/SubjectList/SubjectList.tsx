@@ -8,7 +8,6 @@ export const SubjectList = () => {
       {subjects.map((subject) => (
         <SubjectCard
           key={subject.id}
-          id={subject.id}
           name={subject.name}
           color={subject.color}
         />

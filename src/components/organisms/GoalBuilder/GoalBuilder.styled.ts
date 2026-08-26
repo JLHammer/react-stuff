@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { media } from "../../../styles/mixins";
 
-export const GoalBuilderStyled = styled.div`
+export const GoalBuilderStyled = styled.form`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -12,7 +12,7 @@ export const GoalBuilderStyled = styled.div`
   }
 `;
 
-export const GoalBuilderFields = styled.form`
+export const GoalBuilderFields = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.s};

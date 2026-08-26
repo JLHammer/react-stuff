@@ -3,5 +3,11 @@ import type { ReactNode } from "react";
 export type ContentWrapperProps = {
   title: string;
   description: string;
-  children?: ReactNode;
+  color?: string;
+  icon?: string;
+  children: ReactNode;
+};
+
+export type ContentWrapperTitleBarStyledProps = {
+  $color?: string;
 };

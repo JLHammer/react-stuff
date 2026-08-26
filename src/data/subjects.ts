@@ -1,4 +1,4 @@
-import type { SubjectData } from "../components/molecules/SubjectCard/SubjectCard.types";
+import type { SubjectData } from "./subjects.types";
 
 export const subjects: SubjectData[] = [
   { id: "biologi", name: "Biologi", color: "#a41942" },

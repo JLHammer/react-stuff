@@ -31,7 +31,7 @@ export const NewsletterForm = () => {
   const [status, setStatus] = useState("");
 
   const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const nextEmail = event.target.value;
 

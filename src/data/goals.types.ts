@@ -5,6 +5,5 @@ export type GoalData = {
   description: string;
   color: string;
   icon: string;
-  imageUrl: string;
   videoUrl: string;
 };

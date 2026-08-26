@@ -7,7 +7,7 @@ export const GoalDetailStyled = styled.article`
   gap: ${({ theme }) => theme.spacing.m};
 `;
 
-export const GoalDetailByline = styled.h2`
+export const GoalDetailByline = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.l};
   font-weight: 600;
 `;

@@ -1,13 +1,14 @@
 import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
-import type {
-  ContactFormErrors,
-  ContactFormValues,
-} from "./ContactForm.types";
+import type { ContactFormErrors, ContactFormValues } from "./ContactForm.types";
 import { hasErrors, isEmail, isFilled } from "../../../utils/validation";
 import { FormField } from "../../molecules/FormField/FormField";
 import { Button } from "../../atoms/Button/Button";
-import { FormStyled, FormActions, FormStatus } from "./ContactForm.styled";
+import {
+  ContactFormStyled,
+  ContactFormActions,
+  ContactFormStatus,
+} from "./ContactForm.styled";
 
 const emptyValues: ContactFormValues = {
   name: "",
@@ -41,7 +42,7 @@ export const ContactForm = () => {
   const [status, setStatus] = useState("");
 
   const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = event.target;
     const nextValues = { ...values, [name]: value };
@@ -71,7 +72,7 @@ export const ContactForm = () => {
 
   return (
     <>
-      <FormStyled onSubmit={handleSubmit} noValidate>
+      <ContactFormStyled onSubmit={handleSubmit} noValidate>
         <FormField
           id="name"
           name="name"
@@ -105,12 +106,12 @@ export const ContactForm = () => {
           required
         />
 
-        <FormActions>
+        <ContactFormActions>
           <Button type="submit" label="Send" />
-        </FormActions>
-      </FormStyled>
+        </ContactFormActions>
+      </ContactFormStyled>
 
-      {status && <FormStatus role="status">{status}</FormStatus>}
+      {status && <ContactFormStatus role="status">{status}</ContactFormStatus>}
     </>
   );
 };

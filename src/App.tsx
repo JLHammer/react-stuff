@@ -1,7 +1,7 @@
 import { BrowserRouter } from "react-router-dom";
 import { Header } from "./components/organisms/Header/Header";
 import { Navbar } from "./components/organisms/Navbar/Navbar";
-import { NavbarLink } from "./components/organisms/Navbar/NavbarLink";
+import { NavbarLink } from "./components/atoms/NavbarLink/NavbarLink";
 import { Footer } from "./components/organisms/Footer/Footer";
 import { Main } from "./components/templates/Main/Main";
 import { UnorderedList } from "./components/atoms/UnorderedList/UnorderedList";

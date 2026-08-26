@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { media } from "../../../styles/mixins";
+import { fieldStack, media } from "../../../styles/mixins";
 
 export const FormFieldStyled = styled.div`
   display: flex;
@@ -23,11 +23,8 @@ export const FormFieldStyled = styled.div`
 `;
 
 export const FormFieldControl = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  ${fieldStack}
   flex: 1 1 ${({ theme }) => theme.sizes.inputWidth};
-  max-width: ${({ theme }) => theme.sizes.inputWidth};
 `;
 
 export const FormFieldError = styled.p`

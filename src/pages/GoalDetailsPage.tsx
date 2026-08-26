@@ -24,12 +24,13 @@ export const GoalDetailsPage = () => {
           title="Målet findes ikke"
           description="Verdensmålet, du prøvede at åbne, findes ikke."
         >
-          <Article title={`Vi kunne ikke finde verdensmål ${id}`} />
-          <p>
-            Der findes 17 verdensmål, og adressen peger på et mål uden for den
-            række. Vælg et af målene herunder, eller{" "}
-            <Link to="/">gå tilbage til forsiden</Link>.
-          </p>
+          <Article title={`Vi kunne ikke finde verdensmål ${id}`}>
+            <p>
+              Der findes 17 verdensmål, og adressen peger på et mål uden for den
+              række. Vælg et af målene herunder, eller{" "}
+              <Link to="/">gå tilbage til forsiden</Link>.
+            </p>
+          </Article>
         </ContentWrapper>
 
         <GoalList />
@@ -45,6 +46,8 @@ export const GoalDetailsPage = () => {
       <ContentWrapper
         title={`Mål ${goal.id}: ${goal.title}`}
         description={goal.byline}
+        color={goal.color}
+        icon={goal.icon}
       >
         <GoalDetail goal={goal} />
         <GoalNav previous={previous} next={next} />

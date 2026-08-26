@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fieldStack, statusText } from "../../../styles/mixins";
 
 export const NewsletterFormStyled = styled.form`
   display: flex;
@@ -8,11 +9,8 @@ export const NewsletterFormStyled = styled.form`
 `;
 
 export const NewsletterField = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+  ${fieldStack}
   flex: 1 1 18rem;
-  max-width: ${({ theme }) => theme.sizes.inputWidth};
 `;
 
 export const NewsletterAction = styled.div`
@@ -28,5 +26,5 @@ export const NewsletterError = styled.p`
 `;
 
 export const NewsletterStatus = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.xs};
+  ${statusText}
 `;

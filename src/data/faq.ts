@@ -13,8 +13,8 @@ export const faq: FaqEntry[] = [
     id: "hvordan-blev-verdensmaalene-udviklet",
     question: "Hvordan blev verdensmålene udviklet?",
     answer: [
-      "Det er FN's 193 medlemsstater, som i fællesskab har udviklet verdensmålene. Processen for udviklingen af verdensmålene er unik i FN's historie. Den er præget af gennemsigtighed, hvor repræsentanter fra regeringer, den private sektor, forskere, civilsamfund og 10 millioner borgere gav deres stemme gennem <a href=\"http://data.myworld2015.org/\" target=\"_blank\" rel=\"noopener noreferrer\">MyWorld2015</a>.",
-      "For at opretholde en gennemsigtig og vedvarende proces kan du indtil 2030 komme med dine inputs til den globale, bæredygtige udvikling gennem <a href=\"https://myworld2030.org/\" target=\"_blank\" rel=\"noopener noreferrer\">MyWorld2030's spørgeskema</a>.",
+      'Det er FN\'s 193 medlemsstater, som i fællesskab har udviklet verdensmålene. Processen for udviklingen af verdensmålene er unik i FN\'s historie. Den er præget af gennemsigtighed, hvor repræsentanter fra regeringer, den private sektor, forskere, civilsamfund og 10 millioner borgere gav deres stemme gennem <a href="http://data.myworld2015.org/" target="_blank" rel="noopener noreferrer">MyWorld2015</a>.',
+      'For at opretholde en gennemsigtig og vedvarende proces kan du indtil 2030 komme med dine inputs til den globale, bæredygtige udvikling gennem <a href="https://myworld2030.org/" target="_blank" rel="noopener noreferrer">MyWorld2030\'s spørgeskema</a>.',
     ],
   },
   {

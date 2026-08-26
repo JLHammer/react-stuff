@@ -12,7 +12,6 @@ export const FaqPage = () => {
         <Article
           key={entry.id}
           title={entry.question}
-          headingLevel={3}
           paragraphs={entry.answer}
         />
       ))}

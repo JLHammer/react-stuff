@@ -5,7 +5,9 @@ export type FormFieldProps = {
   name: string;
   label: string;
   value: string;
-  onChange: (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
+  onChange: (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => void;
   type?: "text" | "email" | "password";
   placeholder?: string;
   required?: boolean;

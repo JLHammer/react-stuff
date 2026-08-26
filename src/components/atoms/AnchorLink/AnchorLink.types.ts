@@ -2,6 +2,6 @@ import type { ReactNode } from "react";
 
 export type AnchorLinkProps = {
   href: string;
-  children?: ReactNode;
+  children: ReactNode;
   newTab?: boolean;
 };

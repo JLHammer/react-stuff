@@ -9,7 +9,7 @@ export const Navbar = ({ children }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <NavbarStyled>
+    <NavbarStyled aria-label="Hovedmenu">
       <MenuToggle
         isOpen={isOpen}
         controls={panelId}

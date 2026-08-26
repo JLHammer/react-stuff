@@ -1,5 +1,5 @@
-import type { NavbarLinkProps } from "./Navbar.types";
-import { NavbarLinkStyled } from "./Navbar.styled";
+import type { NavbarLinkProps } from "./NavbarLink.types";
+import { NavbarLinkStyled } from "./NavbarLink.styled";
 
 export const NavbarLink = ({ to, end = true, children }: NavbarLinkProps) => {
   return (

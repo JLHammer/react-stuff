@@ -23,8 +23,9 @@ export const GoalListTitle = styled.h2`
   }
 `;
 
-export const GoalListDivider = styled.div`
+export const GoalListDivider = styled.hr`
   position: relative;
+  border-top-width: 0;
   width: 270px;
   max-width: 100%;
   height: 10px;
@@ -52,11 +53,11 @@ export const GoalListDivider = styled.div`
   }
 `;
 
-export const GoalGrid = styled.div`
+export const GoalGrid = styled.ul`
   display: grid;
   align-items: start;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 12px;
+  gap: ${({ theme }) => theme.spacing.xs};
 
   ${media("desktop")} {
     grid-template-columns: repeat(3, minmax(0, 1fr));

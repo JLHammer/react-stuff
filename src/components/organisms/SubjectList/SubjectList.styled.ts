@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { media } from "../../../styles/mixins";
 
-export const SubjectGrid = styled.div`
+export const SubjectGrid = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 32px 32px;
+  gap: ${({ theme }) => theme.spacing.l};
 
   ${media("tablet")} {
     grid-template-columns: repeat(2, minmax(0, 1fr));

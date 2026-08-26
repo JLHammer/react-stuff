@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { headingOswald } from "../../../styles/mixins";
+import type { GoalPreviewStyledProps } from "./GoalPreview.types";
 
-export const GoalPreviewStyled = styled.div<{ $color: string }>`
+export const GoalPreviewStyled = styled.output<GoalPreviewStyledProps>`
   display: flex;
   align-items: center;
   justify-content: center;

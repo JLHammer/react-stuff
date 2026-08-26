@@ -2,7 +2,6 @@ import { css } from "styled-components";
 import { theme } from "./theme";
 
 type Breakpoint = keyof typeof theme.breakpoints;
-type Spacing = keyof typeof theme.spacing;
 
 export const media = (breakpoint: Breakpoint) =>
   `@media (max-width: ${theme.breakpoints[breakpoint]})`;
@@ -12,25 +11,6 @@ export const contentWidth = css`
   max-width: ${({ theme }) => theme.maxWidths.content};
   margin: 0 auto;
   padding: 0 ${({ theme }) => theme.spacing.s};
-`;
-
-export const flexColumn = (gap?: Spacing) => css`
-  display: flex;
-  flex-direction: column;
-  ${gap &&
-  css`
-    gap: ${({ theme }) => theme.spacing[gap]};
-  `}
-`;
-
-export const flexRowCenter = (gap?: Spacing) => css`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  ${gap &&
-  css`
-    gap: ${({ theme }) => theme.spacing[gap]};
-  `}
 `;
 
 export const inputField = css`
@@ -48,6 +28,35 @@ export const inputField = css`
   &::placeholder {
     color: ${({ theme }) => theme.colors.placeholder};
   }
+`;
+
+export const formColumn = css`
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacing.s};
+`;
+
+export const formActions = css`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: ${({ theme }) =>
+    `calc(${theme.sizes.labelWidth} + ${theme.spacing.s} + ${theme.sizes.inputWidth})`};
+
+  ${media("mobile")} {
+    max-width: 100%;
+  }
+`;
+
+export const fieldStack = css`
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  max-width: ${({ theme }) => theme.sizes.inputWidth};
+`;
+
+export const statusText = css`
+  font-size: ${({ theme }) => theme.fontSizes.xs};
 `;
 
 export const buttonSurface = css`

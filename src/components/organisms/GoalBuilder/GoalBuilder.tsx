@@ -1,9 +1,6 @@
 import { useState } from "react";
 import type { ChangeEvent } from "react";
-import type {
-  GoalBuilderErrors,
-  GoalBuilderValues,
-} from "./GoalBuilder.types";
+import type { GoalBuilderErrors, GoalBuilderValues } from "./GoalBuilder.types";
 import { isFilled, isHexColor } from "../../../utils/validation";
 import { FormField } from "../../molecules/FormField/FormField";
 import { GoalPreview } from "../../molecules/GoalPreview/GoalPreview";
@@ -40,7 +37,7 @@ export const GoalBuilder = () => {
   const [errors, setErrors] = useState<GoalBuilderErrors>({});
 
   const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = event.target;
     const nextValues = { ...values, [name]: value };
@@ -50,11 +47,8 @@ export const GoalBuilder = () => {
   };
 
   return (
-    <GoalBuilderStyled>
-      <GoalBuilderFields
-        onSubmit={(event) => event.preventDefault()}
-        noValidate
-      >
+    <GoalBuilderStyled onSubmit={(event) => event.preventDefault()} noValidate>
+      <GoalBuilderFields>
         <FormField
           id="goal-text"
           name="goalText"

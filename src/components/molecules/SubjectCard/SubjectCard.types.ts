@@ -1,10 +1,6 @@
-export type SubjectData = {
-  id: string;
-  name: string;
-  color: string;
-};
+import type { SubjectData } from "../../../data/subjects.types";
 
-export type SubjectCardProps = SubjectData;
+export type SubjectCardProps = Pick<SubjectData, "name" | "color">;
 
 export type SubjectCardStyledProps = {
   $color: string;

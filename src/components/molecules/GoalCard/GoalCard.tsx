@@ -10,14 +10,16 @@ import {
 
 export const GoalCard = ({ id, title, color, icon }: GoalCardProps) => {
   return (
-    <GoalCardStyled to={`/maal/${id}`} $color={color}>
-      <GoalCardHeading>
-        <GoalCardNumber>{id}</GoalCardNumber>
-        <GoalCardTitle>{title}</GoalCardTitle>
-      </GoalCardHeading>
-      <GoalCardIcon aria-hidden="true">
-        <GoalIcon icon={icon} />
-      </GoalCardIcon>
-    </GoalCardStyled>
+    <li>
+      <GoalCardStyled to={`/maal/${id}`} $color={color}>
+        <GoalCardHeading>
+          <GoalCardNumber>{id}</GoalCardNumber>
+          <GoalCardTitle>{title}</GoalCardTitle>
+        </GoalCardHeading>
+        <GoalCardIcon aria-hidden="true">
+          <GoalIcon icon={icon} />
+        </GoalCardIcon>
+      </GoalCardStyled>
+    </li>
   );
 };

@@ -36,6 +36,8 @@ export const theme = {
     topBarHeight: "30px",
     bannerHeight: "100px",
     bannerHeightSmall: "72px",
+    bannerIconWidth: "64px",
+    bannerIconWidthSmall: "48px",
     headerLogoHeight: "108px",
     headerLogoHeightSmall: "72px",
     footerLogoHeight: "3.75rem",
@@ -46,17 +48,15 @@ export const theme = {
     labelWidth: "125px",
     likeButtonSize: "64px",
     subjectCardHeight: "219px",
+    subjectCardHeightSmall: "160px",
   },
 
   maxWidths: {
-    page: "1440px",
     content: "1262px",
   },
 
   radii: {
     s: "4px",
-    m: "8px",
-    pill: "999px",
     round: "50%",
   },
 

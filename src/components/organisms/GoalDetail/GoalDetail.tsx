@@ -16,7 +16,7 @@ const toMutedEmbed = (url: string) =>
 
 export const GoalDetail = ({ goal }: GoalDetailProps) => {
   return (
-    <GoalDetailStyled>
+    <GoalDetailStyled aria-label={`Mål ${goal.id}: ${goal.title}`}>
       <GoalDetailByline>{goal.byline}</GoalDetailByline>
 
       <GoalDetailMedia>
@@ -30,7 +30,7 @@ export const GoalDetail = ({ goal }: GoalDetailProps) => {
             />
           </GoalDetailVideo>
         )}
-        <LikeButton label={`Synes godt om mål ${goal.id}: ${goal.title}`} />
+        <LikeButton goalName={`mål ${goal.id}: ${goal.title}`} />
       </GoalDetailMedia>
 
       <GoalDetailText>

@@ -5,10 +5,10 @@ import { hasErrors, isEmail, isFilled } from "../../../utils/validation";
 import { FormField } from "../../molecules/FormField/FormField";
 import { Button } from "../../atoms/Button/Button";
 import {
-  FormStyled,
-  FormActions,
-  FormStatus,
-} from "../ContactForm/ContactForm.styled";
+  LoginFormStyled,
+  LoginFormActions,
+  LoginFormStatus,
+} from "./LoginForm.styled";
 
 const emptyValues: LoginFormValues = {
   email: "",
@@ -37,7 +37,7 @@ export const LoginForm = () => {
   const [status, setStatus] = useState("");
 
   const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = event.target;
     const nextValues = { ...values, [name]: value };
@@ -66,7 +66,7 @@ export const LoginForm = () => {
 
   return (
     <>
-      <FormStyled onSubmit={handleSubmit} noValidate>
+      <LoginFormStyled onSubmit={handleSubmit} noValidate>
         <FormField
           id="login-email"
           name="email"
@@ -90,12 +90,12 @@ export const LoginForm = () => {
           required
         />
 
-        <FormActions>
+        <LoginFormActions>
           <Button type="submit" label="Login" />
-        </FormActions>
-      </FormStyled>
+        </LoginFormActions>
+      </LoginFormStyled>
 
-      {status && <FormStatus role="status">{status}</FormStatus>}
+      {status && <LoginFormStatus role="status">{status}</LoginFormStatus>}
     </>
   );
 };

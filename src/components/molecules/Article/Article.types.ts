@@ -1,6 +1,8 @@
+import type { ReactNode } from "react";
+
 export type ArticleProps = {
-  title?: string;
-  headingLevel?: 2 | 3;
+  title: string;
   lead?: string;
   paragraphs?: string[];
+  children?: ReactNode;
 };
