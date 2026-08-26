@@ -15,6 +15,7 @@ export const LikeButtonStyled = styled.button<LikeButtonStyledProps>`
   color: ${({ $isLiked, theme }) =>
     $isLiked ? theme.colors.accent : theme.colors.text};
   cursor: pointer;
+  transition: color 0.2s ease;
 
   img {
     display: block;
