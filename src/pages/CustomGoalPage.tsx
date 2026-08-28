@@ -1,5 +1,5 @@
 import { ContentWrapper } from "../components/templates/ContentWrapper/ContentWrapper";
-import { GoalBuilder } from "../components/organisms/GoalBuilder/GoalBuilder";
+import { CustomGoalDesigner } from "../components/organisms/CustomGoalDesigner/CustomGoalDesigner";
 
 export const CustomGoalPage = () => {
   return (
@@ -12,7 +12,7 @@ export const CustomGoalPage = () => {
         og give det en bestemt farve.
       </p>
 
-      <GoalBuilder />
+      <CustomGoalDesigner />
     </ContentWrapper>
   );
 };

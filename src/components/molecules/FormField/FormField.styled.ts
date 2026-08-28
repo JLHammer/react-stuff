@@ -32,3 +32,9 @@ export const FormFieldError = styled.p`
   font-size: ${({ theme }) => theme.fontSizes.xs};
   color: ${({ theme }) => theme.colors.required};
 `;
+
+export const FormFieldHint = styled.p`
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.xs};
+  color: ${({ theme }) => theme.colors.placeholder};
+`;

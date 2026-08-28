@@ -5,6 +5,7 @@ import {
   FormFieldStyled,
   FormFieldControl,
   FormFieldError,
+  FormFieldHint,
 } from "./FormField.styled";
 
 export const FormField = ({
@@ -18,8 +19,13 @@ export const FormField = ({
   required,
   rows,
   error,
+  hint,
 }: FormFieldProps) => {
   const errorId = `${id}-error`;
+  const hintId = `${id}-hint`;
+  const describedBy = [error && errorId, hint && hintId]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <FormFieldStyled>
@@ -35,13 +41,14 @@ export const FormField = ({
           required={required}
           rows={rows}
           hasError={Boolean(error)}
-          describedBy={error ? errorId : undefined}
+          describedBy={describedBy || undefined}
         />
         {error && (
           <FormFieldError id={errorId} role="alert">
             {error}
           </FormFieldError>
         )}
+        {hint && <FormFieldHint id={hintId}>{hint}</FormFieldHint>}
       </FormFieldControl>
     </FormFieldStyled>
   );

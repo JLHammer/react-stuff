@@ -11,7 +11,7 @@ export const GoalPreviewStyled = styled.output<GoalPreviewStyledProps>`
   aspect-ratio: 1 / 1;
   padding: ${({ theme }) => theme.spacing.s};
   border: 1px solid ${({ theme }) => theme.colors.border};
-  background-color: ${({ $color }) => $color};
+  background-color: ${({ $color, theme }) => $color ?? theme.colors.accent};
 `;
 
 export const GoalPreviewText = styled.p`
