@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
+import { Loader } from "./components/atoms/Loader/Loader";
 import { SkipLink } from "./components/atoms/SkipLink/SkipLink";
 import { Header } from "./components/organisms/Header/Header";
 import { Navbar } from "./components/organisms/Navbar/Navbar";
@@ -12,6 +14,20 @@ import { AppRouter } from "./router/AppRouter";
 import logo from "./assets/Logo.svg";
 
 function App() {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <BrowserRouter>
       <SkipLink href="#indhold">Spring til indhold</SkipLink>
