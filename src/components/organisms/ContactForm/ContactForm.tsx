@@ -10,7 +10,6 @@ import {
   ContactFormStatus,
 } from "./ContactForm.styled";
 
-// Felterne er uncontrolled, så værdierne læses direkte fra formularen.
 const readValues = (form: HTMLFormElement): ContactFormValues => {
   const data = new FormData(form);
 
