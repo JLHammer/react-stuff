@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { media } from "../../../styles/mixins";
 import { MenuToggleStyled } from "../../atoms/MenuToggle/MenuToggle.styled";
+import { NavbarLinkStyled } from "../../atoms/NavbarLink/NavbarLink.styled";
 import { UnorderedListStyled } from "../../atoms/UnorderedList/UnorderedList.styled";
 import type { NavbarPanelProps } from "./Navbar.types";
 
@@ -9,7 +10,12 @@ export const NavbarStyled = styled.nav`
   align-items: center;
 
   ${UnorderedListStyled} {
-    gap: 35px;
+    flex-wrap: nowrap;
+    gap: clamp(0.75rem, 1.3vw, 35px);
+  }
+
+  ${NavbarLinkStyled} {
+    font-size: clamp(0.75rem, 1.15vw, ${({ theme }) => theme.fontSizes.s});
   }
 
   ${MenuToggleStyled} {
@@ -20,6 +26,10 @@ export const NavbarStyled = styled.nav`
     flex-direction: column;
     align-items: stretch;
     width: 100%;
+
+    ${NavbarLinkStyled} {
+      font-size: ${({ theme }) => theme.fontSizes.m};
+    }
 
     ${MenuToggleStyled} {
       display: inline-flex;
