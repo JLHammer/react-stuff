@@ -22,7 +22,7 @@ export const useFetch = <T>(url: string) => {
         setData(json);
       } catch (caught) {
         setData(null);
-        setError("Vi kunne ikke hente data lige nu. Prøv igen senere.");
+        setError("Dataen kunne ikke hentes lige nu. Prøv igen senere.");
         console.error(caught);
       } finally {
         setIsLoading(false);

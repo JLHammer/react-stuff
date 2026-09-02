@@ -14,3 +14,13 @@ export type GoalListData = {
   color: string;
   icon: string;
 };
+
+export type GoalDetailData = {
+  id: number;
+  title: string;
+  byline: string;
+  description: string;
+  color: string;
+  icon: string;
+  video_url: string;
+};
