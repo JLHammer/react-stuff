@@ -6,6 +6,7 @@ export const Input = ({
   name,
   value,
   onChange,
+  onBlur,
   registration,
   type = "text",
   placeholder,
@@ -15,7 +16,7 @@ export const Input = ({
   hasError,
   describedBy,
 }: InputProps) => {
-  const fieldProps = registration ?? { name, value, onChange };
+  const fieldProps = registration ?? { name, value, onChange, onBlur };
 
   if (rows) {
     return (

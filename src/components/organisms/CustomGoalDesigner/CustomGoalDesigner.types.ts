@@ -6,3 +6,7 @@ export type CustomGoalDesignerValues = {
 export type CustomGoalDesignerErrors = Partial<
   Record<keyof CustomGoalDesignerValues, string>
 >;
+
+export type CustomGoalDesignerTouched = Partial<
+  Record<keyof CustomGoalDesignerValues, boolean>
+>;

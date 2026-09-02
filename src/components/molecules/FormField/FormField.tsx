@@ -14,6 +14,7 @@ export const FormField = ({
   label,
   value,
   onChange,
+  onBlur,
   registration,
   type,
   placeholder,
@@ -39,6 +40,7 @@ export const FormField = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          onBlur={onBlur}
           registration={registration}
           required={required}
           rows={rows}

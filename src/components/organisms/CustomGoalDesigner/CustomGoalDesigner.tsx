@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import type { ChangeEvent } from "react";
+import type { ChangeEvent, FocusEvent } from "react";
 import type {
   CustomGoalDesignerErrors,
+  CustomGoalDesignerTouched,
   CustomGoalDesignerValues,
 } from "./CustomGoalDesigner.types";
 import { isFilled, isHexColor } from "../../../utils/validation";
@@ -46,6 +47,7 @@ const toCssColor = (value: string) =>
 export const CustomGoalDesigner = () => {
   const [values, setValues] = useState<CustomGoalDesignerValues>(emptyValues);
   const [errors, setErrors] = useState<CustomGoalDesignerErrors>({});
+  const [touched, setTouched] = useState<CustomGoalDesignerTouched>({});
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -58,6 +60,14 @@ export const CustomGoalDesigner = () => {
     const { name, value } = event.target;
 
     setValues({ ...values, [name]: value });
+  };
+
+  const handleBlur = (
+    event: FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name } = event.target;
+
+    setTouched({ ...touched, [name]: true });
   };
 
   return (
@@ -73,7 +83,8 @@ export const CustomGoalDesigner = () => {
           placeholder="Indtast din måltekst"
           value={values.goalText}
           onChange={handleChange}
-          error={errors.goalText}
+          onBlur={handleBlur}
+          error={touched.goalText ? errors.goalText : undefined}
           hint={`${values.goalText.length} af ${maxTextLength} tegn`}
           required
         />
@@ -81,10 +92,11 @@ export const CustomGoalDesigner = () => {
           id="goal-color"
           name="goalColor"
           label="Farvekode"
-          placeholder="Fx #2bbbde"
+          placeholder="Indtast din farvekode, fx #2bbbde"
           value={values.goalColor}
           onChange={handleChange}
-          error={errors.goalColor}
+          onBlur={handleBlur}
+          error={touched.goalColor ? errors.goalColor : undefined}
           required
         />
       </CustomGoalDesignerFields>
