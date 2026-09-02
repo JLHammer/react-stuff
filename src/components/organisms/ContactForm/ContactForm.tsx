@@ -1,7 +1,7 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import type { ContactFormValues } from "./ContactForm.types";
-import { isEmail, isFilled } from "../../../utils/validation";
+import { useRef, useState } from "react";
+import type { FormEvent } from "react";
+import type { ContactFormErrors, ContactFormValues } from "./ContactForm.types";
+import { hasErrors, isEmail, isFilled } from "../../../utils/validation";
 import { FormField } from "../../molecules/FormField/FormField";
 import { Button } from "../../atoms/Button/Button";
 import {
@@ -10,83 +10,106 @@ import {
   ContactFormStatus,
 } from "./ContactForm.styled";
 
-const emptyValues: ContactFormValues = {
-  name: "",
-  email: "",
-  message: "",
+// Felterne er uncontrolled, så værdierne læses direkte fra formularen.
+const readValues = (form: HTMLFormElement): ContactFormValues => {
+  const data = new FormData(form);
+
+  return {
+    name: String(data.get("name") ?? ""),
+    email: String(data.get("email") ?? ""),
+    message: String(data.get("message") ?? ""),
+  };
 };
 
-const validateName = (value: string) => isFilled(value) || "Skriv dit navn.";
+const validate = (values: ContactFormValues): ContactFormErrors => {
+  const errors: ContactFormErrors = {};
 
-const validateEmail = (value: string) => {
-  if (!isFilled(value)) {
-    return "Skriv din email.";
+  if (!isFilled(values.name)) {
+    errors.name = "Skriv dit navn.";
   }
 
-  if (!isEmail(value)) {
-    return "Skriv en gyldig email, fx navn@eksempel.dk.";
+  if (!isFilled(values.email)) {
+    errors.email = "Skriv din email.";
+  } else if (!isEmail(values.email)) {
+    errors.email = "Skriv en gyldig email, fx navn@eksempel.dk.";
   }
 
-  return true;
+  if (!isFilled(values.message)) {
+    errors.message = "Skriv en besked.";
+  }
+
+  return errors;
 };
-
-const validateMessage = (value: string) =>
-  isFilled(value) || "Skriv en besked.";
 
 export const ContactForm = () => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<ContactFormValues>({ defaultValues: emptyValues });
+  const formRef = useRef<HTMLFormElement>(null);
+  const [errors, setErrors] = useState<ContactFormErrors>({});
   const [status, setStatus] = useState("");
 
-  const onSubmit = (values: ContactFormValues) => {
+  const handleInput = (event: FormEvent<HTMLFormElement>) => {
+    if (!hasErrors(errors)) {
+      return;
+    }
+
+    setErrors(validate(readValues(event.currentTarget)));
+  };
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const values = readValues(event.currentTarget);
+    const nextErrors = validate(values);
+
+    setErrors(nextErrors);
+
+    if (hasErrors(nextErrors)) {
+      setStatus("");
+      return;
+    }
+
+    event.currentTarget.reset();
     setStatus(
       `Tak for din besked, ${values.name.trim()} - vi vender tilbage hurtigst muligt.`,
     );
-    reset();
-  };
-
-  const onInvalid = () => {
-    setStatus("");
   };
 
   const handleReset = () => {
-    reset();
+    formRef.current?.reset();
+    setErrors({});
     setStatus("");
   };
 
   return (
     <>
       <ContactFormStyled
-        onSubmit={handleSubmit(onSubmit, onInvalid)}
+        ref={formRef}
+        onSubmit={handleSubmit}
+        onInput={handleInput}
         noValidate
       >
         <FormField
           id="name"
+          name="name"
           label="Navn"
           placeholder="Indtast dit navn"
-          registration={register("name", { validate: validateName })}
-          error={errors.name?.message}
+          error={errors.name}
           required
         />
         <FormField
           id="email"
+          name="email"
           type="email"
           label="Email"
           placeholder="Indtast din email"
-          registration={register("email", { validate: validateEmail })}
-          error={errors.email?.message}
+          error={errors.email}
           required
         />
         <FormField
           id="message"
+          name="message"
           label="Besked"
           placeholder="Indtast din besked"
-          registration={register("message", { validate: validateMessage })}
-          error={errors.message?.message}
+          error={errors.message}
           rows={6}
           required
         />

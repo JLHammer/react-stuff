@@ -1,14 +1,12 @@
 import type { ChangeEvent } from "react";
-import type { UseFormRegisterReturn } from "react-hook-form";
 
 export type InputProps = {
   id: string;
-  name?: string;
+  name: string;
   value?: string;
   onChange?: (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
-  registration?: UseFormRegisterReturn;
   type?: "text" | "email" | "password";
   placeholder?: string;
   ariaLabel?: string;

@@ -6,7 +6,6 @@ export const Input = ({
   name,
   value,
   onChange,
-  registration,
   type = "text",
   placeholder,
   ariaLabel,
@@ -15,22 +14,20 @@ export const Input = ({
   hasError,
   describedBy,
 }: InputProps) => {
-  // Uden en registration styres feltet af value/onChange, med en registration
-  // holder React Hook Form selv styr på værdien.
-  const fieldProps = registration ?? { name, value, onChange };
-
   if (rows) {
     return (
       <TextareaStyled
         id={id}
+        name={name}
         rows={rows}
         placeholder={placeholder}
         aria-label={ariaLabel}
         aria-invalid={hasError || undefined}
         aria-describedby={describedBy}
+        value={value}
+        onChange={onChange}
         required={required}
         $hasError={hasError}
-        {...fieldProps}
       />
     );
   }
@@ -38,14 +35,16 @@ export const Input = ({
   return (
     <InputStyled
       id={id}
+      name={name}
       type={type}
       placeholder={placeholder}
       aria-label={ariaLabel}
       aria-invalid={hasError || undefined}
       aria-describedby={describedBy}
+      value={value}
+      onChange={onChange}
       required={required}
       $hasError={hasError}
-      {...fieldProps}
     />
   );
 };
