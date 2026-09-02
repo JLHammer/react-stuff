@@ -1,9 +1,4 @@
-export type ContactFormValues = {
-  name: string;
-  email: string;
-  message: string;
-};
+import type { z } from "zod";
+import type { contactFormSchema } from "./ContactForm.schema";
 
-export type ContactFormErrors = Partial<
-  Record<keyof ContactFormValues, string>
->;
+export type ContactFormValues = z.infer<typeof contactFormSchema>;

@@ -14,6 +14,7 @@ export const FormField = ({
   label,
   value,
   onChange,
+  registration,
   type,
   placeholder,
   required,
@@ -38,6 +39,7 @@ export const FormField = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          registration={registration}
           required={required}
           rows={rows}
           hasError={Boolean(error)}
