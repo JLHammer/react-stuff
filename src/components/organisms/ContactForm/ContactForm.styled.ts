@@ -7,6 +7,7 @@ export const ContactFormStyled = styled.form`
 
 export const ContactFormActions = styled.div`
   ${formActions}
+  gap: ${({ theme }) => theme.spacing.xs};
 `;
 
 export const ContactFormStatus = styled.p`

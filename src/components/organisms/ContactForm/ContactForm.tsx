@@ -1,7 +1,7 @@
 import { useState } from "react";
-import type { ChangeEvent, FormEvent } from "react";
-import type { ContactFormErrors, ContactFormValues } from "./ContactForm.types";
-import { hasErrors, isEmail, isFilled } from "../../../utils/validation";
+import { useForm } from "react-hook-form";
+import type { ContactFormValues } from "./ContactForm.types";
+import { isEmail, isFilled } from "../../../utils/validation";
 import { FormField } from "../../molecules/FormField/FormField";
 import { Button } from "../../atoms/Button/Button";
 import {
@@ -16,97 +16,83 @@ const emptyValues: ContactFormValues = {
   message: "",
 };
 
-const validate = (values: ContactFormValues): ContactFormErrors => {
-  const errors: ContactFormErrors = {};
+const validateName = (value: string) => isFilled(value) || "Skriv dit navn.";
 
-  if (!isFilled(values.name)) {
-    errors.name = "Skriv dit navn.";
+const validateEmail = (value: string) => {
+  if (!isFilled(value)) {
+    return "Skriv din email.";
   }
 
-  if (!isFilled(values.email)) {
-    errors.email = "Skriv din email.";
-  } else if (!isEmail(values.email)) {
-    errors.email = "Skriv en gyldig email, fx navn@eksempel.dk.";
+  if (!isEmail(value)) {
+    return "Skriv en gyldig email, fx navn@eksempel.dk.";
   }
 
-  if (!isFilled(values.message)) {
-    errors.message = "Skriv en besked.";
-  }
-
-  return errors;
+  return true;
 };
 
+const validateMessage = (value: string) =>
+  isFilled(value) || "Skriv en besked.";
+
 export const ContactForm = () => {
-  const [values, setValues] = useState<ContactFormValues>(emptyValues);
-  const [errors, setErrors] = useState<ContactFormErrors>({});
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormValues>({ defaultValues: emptyValues });
   const [status, setStatus] = useState("");
 
-  const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    const { name, value } = event.target;
-    const nextValues = { ...values, [name]: value };
-
-    setValues(nextValues);
-
-    if (hasErrors(errors)) {
-      setErrors(validate(nextValues));
-    }
+  const onSubmit = (values: ContactFormValues) => {
+    setStatus(
+      `Tak for din besked, ${values.name.trim()} - vi vender tilbage hurtigst muligt.`,
+    );
+    reset();
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const onInvalid = () => {
+    setStatus("");
+  };
 
-    const nextErrors = validate(values);
-
-    setErrors(nextErrors);
-
-    if (hasErrors(nextErrors)) {
-      setStatus("");
-      return;
-    }
-
-    setStatus("Tak for din besked - vi vender tilbage hurtigst muligt.");
-    setValues(emptyValues);
+  const handleReset = () => {
+    reset();
+    setStatus("");
   };
 
   return (
     <>
-      <ContactFormStyled onSubmit={handleSubmit} noValidate>
+      <ContactFormStyled
+        onSubmit={handleSubmit(onSubmit, onInvalid)}
+        noValidate
+      >
         <FormField
           id="name"
-          name="name"
           label="Navn"
           placeholder="Indtast dit navn"
-          value={values.name}
-          onChange={handleChange}
-          error={errors.name}
+          registration={register("name", { validate: validateName })}
+          error={errors.name?.message}
           required
         />
         <FormField
           id="email"
-          name="email"
           type="email"
           label="Email"
           placeholder="Indtast din email"
-          value={values.email}
-          onChange={handleChange}
-          error={errors.email}
+          registration={register("email", { validate: validateEmail })}
+          error={errors.email?.message}
           required
         />
         <FormField
           id="message"
-          name="message"
           label="Besked"
           placeholder="Indtast din besked"
-          value={values.message}
-          onChange={handleChange}
-          error={errors.message}
+          registration={register("message", { validate: validateMessage })}
+          error={errors.message?.message}
           rows={6}
           required
         />
 
         <ContactFormActions>
+          <Button label="Nulstil" onClick={handleReset} />
           <Button type="submit" label="Send" />
         </ContactFormActions>
       </ContactFormStyled>
