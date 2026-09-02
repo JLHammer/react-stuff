@@ -1,5 +1,7 @@
 import { useId } from "react";
-import { goals } from "../../../data/goals";
+import type { GoalListData } from "../../../data/goals.types";
+import { useFetch } from "../../../hooks/useFetch";
+import { toHexColor } from "../../../utils/color";
 import { GoalCard } from "../../molecules/GoalCard/GoalCard";
 import {
   GoalListStyled,
@@ -12,8 +14,13 @@ import {
 
 import verdensmaal from "../../../assets/images/verdensmaal.svg";
 
+const url = "http://localhost:4000/api/goals";
+
 export const GoalList = () => {
   const titleId = useId();
+  const { data, isLoading, error } = useFetch<GoalListData[]>(url);
+
+  const goals = data ?? [];
 
   return (
     <GoalListStyled aria-labelledby={titleId}>
@@ -23,16 +30,22 @@ export const GoalList = () => {
         </GoalListTitle>
         <GoalListDivider aria-hidden="true" />
 
-        {goals.length === 0 ? (
+        {isLoading && <p role="status">Henter verdensmål …</p>}
+
+        {error && <p role="alert">{error}</p>}
+
+        {!isLoading && !error && goals.length === 0 && (
           <p>Der er ingen verdensmål at vise</p>
-        ) : (
+        )}
+
+        {goals.length > 0 && (
           <GoalGrid>
             {goals.map((goal) => (
               <GoalCard
                 key={goal.id}
-                id={goal.id}
+                id={String(goal.id)}
                 title={goal.title}
-                color={goal.color}
+                color={toHexColor(goal.color)}
                 icon={goal.icon}
               />
             ))}

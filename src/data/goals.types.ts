@@ -7,3 +7,10 @@ export type GoalData = {
   icon: string;
   videoUrl: string;
 };
+
+export type GoalListData = {
+  id: number;
+  title: string;
+  color: string;
+  icon: string;
+};

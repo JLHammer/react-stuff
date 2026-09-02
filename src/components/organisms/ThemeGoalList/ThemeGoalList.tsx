@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
 import { useOutletContext, useParams } from "react-router-dom";
 import type { ThemeData, ThemeGoalData } from "../../../data/themes.types";
 import type { ThemeParams } from "./ThemeGoalList.types";
+import { useFetch } from "../../../hooks/useFetch";
 import { toHexColor } from "../../../utils/color";
 import { GoalCard } from "../../molecules/GoalCard/GoalCard";
 import {
@@ -14,39 +14,12 @@ import {
 export const ThemeGoalList = () => {
   const { themeSlug } = useParams<ThemeParams>();
   const themes = useOutletContext<ThemeData[]>();
-  const [goals, setGoals] = useState<ThemeGoalData[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
+  const { data, isLoading, error } = useFetch<ThemeGoalData[]>(
+    `http://localhost:4000/api/goals/bytheme/${themeSlug}`,
+  );
 
+  const goals = data ?? [];
   const activeTheme = themes.find((item) => item.slug === themeSlug);
-
-  useEffect(() => {
-    const fetchGoals = async () => {
-      setIsLoading(true);
-      setError("");
-
-      try {
-        const response = await fetch(
-          `http://localhost:4000/api/goals/bytheme/${themeSlug}`,
-        );
-
-        if (!response.ok) {
-          throw new Error(`Serveren svarede med ${response.status}`);
-        }
-
-        const data: ThemeGoalData[] = await response.json();
-
-        setGoals(data);
-      } catch (caught) {
-        setError("Vi kunne ikke hente målene lige nu. Prøv igen senere.");
-        console.error(caught);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchGoals();
-  }, [themeSlug]);
 
   return (
     <ThemeGoalListStyled aria-label="Verdensmål under det valgte tema">

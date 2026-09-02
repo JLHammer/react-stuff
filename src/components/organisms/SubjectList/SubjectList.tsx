@@ -1,5 +1,6 @@
-import { useEffect, useId, useState } from "react";
+import { useId } from "react";
 import type { SubjectData } from "../../../data/subjects.types";
+import { useFetch } from "../../../hooks/useFetch";
 import { toHexColor } from "../../../utils/color";
 import { SubjectCard } from "../../molecules/SubjectCard/SubjectCard";
 import {
@@ -14,32 +15,9 @@ const url = "http://localhost:4000/api/education";
 
 export const SubjectList = () => {
   const titleId = useId();
-  const [subjects, setSubjects] = useState<SubjectData[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState("");
+  const { data, isLoading, error } = useFetch<SubjectData[]>(url);
 
-  useEffect(() => {
-    const fetchSubjects = async () => {
-      try {
-        const response = await fetch(url);
-
-        if (!response.ok) {
-          throw new Error(`Serveren svarede med ${response.status}`);
-        }
-
-        const data: SubjectData[] = await response.json();
-
-        setSubjects(data);
-      } catch (caught) {
-        setError("Vi kunne ikke hente fagene lige nu. Prøv igen senere.");
-        console.error(caught);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchSubjects();
-  }, []);
+  const subjects = data ?? [];
 
   return (
     <SubjectListStyled aria-labelledby={titleId}>

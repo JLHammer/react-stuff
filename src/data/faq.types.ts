@@ -1,5 +1,5 @@
 export type FaqEntry = {
-  id: string;
-  question: string;
-  answer: string[];
+  id: number;
+  title: string;
+  context: string;
 };
