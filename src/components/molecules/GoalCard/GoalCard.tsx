@@ -8,10 +8,16 @@ import {
   GoalCardIcon,
 } from "./GoalCard.styled";
 
-export const GoalCard = ({ id, title, color, icon }: GoalCardProps) => {
+export const GoalCard = ({
+  id,
+  title,
+  color,
+  icon,
+  to = `/maal/${id}`,
+}: GoalCardProps) => {
   return (
     <li>
-      <GoalCardStyled to={`/maal/${id}`} $color={color}>
+      <GoalCardStyled to={to} $color={color}>
         <GoalCardHeading>
           <GoalCardNumber>{id}</GoalCardNumber>
           <GoalCardTitle>{title}</GoalCardTitle>

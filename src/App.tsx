@@ -44,6 +44,11 @@ function App() {
               <NavbarLink to="/">Verdensmålene</NavbarLink>
             </ListItem>
             <ListItem>
+              <NavbarLink to="/temaer" end={false}>
+                Temaer
+              </NavbarLink>
+            </ListItem>
+            <ListItem>
               <NavbarLink to="/undervisning">Undervisning</NavbarLink>
             </ListItem>
             <ListItem>

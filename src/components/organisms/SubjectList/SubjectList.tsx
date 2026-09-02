@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from "react";
 import type { SubjectData } from "../../../data/subjects.types";
+import { toHexColor } from "../../../utils/color";
 import { SubjectCard } from "../../molecules/SubjectCard/SubjectCard";
 import {
   SubjectListStyled,
@@ -10,9 +11,6 @@ import {
 } from "./SubjectList.styled";
 
 const url = "http://localhost:4000/api/education";
-
-const toHexColor = (color: string) =>
-  color.startsWith("#") ? color : `#${color}`;
 
 export const SubjectList = () => {
   const titleId = useId();
